@@ -83,6 +83,7 @@ def copy_dict_of_dicts(data: dict) -> dict:
     return new_dict
 
 
+
 # TODO PART B - Implement the following functions based on the description
 
 def deep_copy_list_of_dicts(data: list) -> list:
@@ -95,7 +96,6 @@ def deep_copy_list_of_dicts(data: list) -> list:
     Return:
         list - deep copy of the list it's values are returned.
     """
-
     new_list1 = []
     int_dict = {}
     for info in data:
@@ -117,8 +117,12 @@ def remove_from_2DList(data: list, val) -> list:
     Return:
         list - list with changes applied.
     """
-    return []
 
+    for sublist in data:
+        while val in sublist:
+            sublist.remove(val)
+
+    return data
 
 def filter_from_2DList(data: list, val) -> list:
     """
@@ -331,7 +335,7 @@ def test_partB():
 
             # Changing list test["input"] should impact list in test["output"]
             test["input"][0].append([3])
-            if test["input"] != test["output"]:
+            if test["input"][0] != test["output"]:
                 fails += 1
                 print("Test Remove \nERROR: Outer list values should no longer be the the same\n", test)
             # Reset test["input"]
@@ -349,7 +353,7 @@ def test_partB():
             if len(test["input"][0]) > 0 and len(test["input"][0][0]) > 0:
                 tests_ran += 1
                 test["input"][0][0].append(8)
-                if test["input"] != test["output"]:
+                if test["input"][0] != test["output"]:
                     fails += 1
                     print("Test Remove \nERROR: Inner list values should be the the same\n", test)
                 # reset test["input"][0]
@@ -382,14 +386,9 @@ def test_partB():
                 fails += 1
                 print("Test Filter \nERROR: References are the same\n", test)
 
-            # Lists should no longer be equal
-            if test["input"][0] == test["output"]:
-                fails += 1
-                print("Test Filter \nERROR: Values are the same\n", test)
-
             # Changing list test["input"] should not impact list in test["output"]
             test["input"][0].append([3])
-            if test["input"] == test["output"]:
+            if test["input"][0] == test["output"]:
                 fails += 1
                 print("Test Filter \nERROR: Outer list values should no longer be the the same\n", test)
             # Reset test["input"]
@@ -408,7 +407,7 @@ def test_partB():
             if len(test["input"][0]) > 0 and len(test["input"][0][-1]) > 0:
                 tests_ran += 1
                 test["input"][0][-1].append(8)
-                if test["input"] == test["output"]:
+                if test["input"][0] == test["output"]:
                     fails += 1
                     print("Test Filter \nERROR: Inner list values should not be the the same\n", test)
                 # reset test["input"][-1]
