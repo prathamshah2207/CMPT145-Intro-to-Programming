@@ -135,7 +135,15 @@ def filter_from_2DList(data: list, val) -> list:
     Return:
         list - a new list with no instances of the value passed in.
     """
-    return []
+    filtered_data = []
+    for sublist in data:
+        filtered_sublist = []
+        for item in sublist:
+            if item != val:
+                filtered_sublist.append(item)
+        filtered_data.append(filtered_sublist)
+
+    return filtered_data
 
 
 ### TESTING ###
