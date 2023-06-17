@@ -137,6 +137,27 @@ if result != expected:
     print("Testing gcd() with", test[0], "and", test[1], "Expected:", expected, "got:", result)
 
 
+#Tests for second function
+
+test = ["Hello, hello, HELLO!", "hello", "Hi"]
+expected = "Hello, Hi, HELLO!"
+result = replace(test[0], test[1], test[2])
+if result != expected:
+    print("Testing replace() with ", test, "Expected:", expected, "got:", result)
+
+test = ["I am happy.", "happy", "extremely joyful and content"]
+expected = "I am extremely joyful and content."
+result = replace(test[0], test[1], test[2])
+if result != expected:
+    print("Testing replace() with ", test, "Expected:", expected, "got:", result)
+
+test = ["ababab", "aba", "x"]
+expected = "xxb"
+result = replace(test[0], test[1], test[2])
+if result != expected:
+    print("Testing replace() with ", test, "Expected:", expected, "got:", result)
+
+
 # TODO Create test driver for whitebox tested functions
 # TODO: Create test driver for blackbox tested functions
 # TODO: Create test driver to test all functions
