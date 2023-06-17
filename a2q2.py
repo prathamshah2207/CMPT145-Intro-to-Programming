@@ -337,3 +337,82 @@ def black_box_test_driver():
 
 
 # TODO: Create test driver to test all functions
+def all_function_test_driver():
+    # Test gcd function
+    print("Testing gcd function:")
+    gcd_test_cases = [
+        {"input": (48, 36), "expected_output": 12},
+        {"input": (60, 48), "expected_output": 12},
+        {"input": (81, 27), "expected_output": 27},
+        {"input": (17, 13), "expected_output": 1},
+        {"input": (0, 5), "expected_output": 5},
+        {"input": (-24, 36), "expected_output": 12},
+        {"input": (1000, 500), "expected_output": -1},  # Test invalid input
+    ]
+    for test_case in gcd_test_cases:
+        input_val1, input_val2 = test_case["input"]
+        expected_output = test_case["expected_output"]
+        output = gcd(input_val1, input_val2)
+        print(f"Input: {input_val1}, {input_val2} | Output: {output} | Expected: {expected_output} | Pass: {output == expected_output}")
+
+    # Test replace function
+    print("\nTesting replace function:")
+    replace_test_cases = [
+        {"input": ("Hello, world!", "o", "x"), "expected_output": "Hellx, wxrld!"},
+        {"input": ("banana", "na", "apple"), "expected_output": "baappleapple"},
+        {"input": ("Hello, world!", "world", "earth"), "expected_output": "Hello, earth!"},
+        {"input": ("", "abc", "xyz"), "expected_output": ""},
+        {"input": ("Test test", "test", ""), "expected_output": "Test "},
+        {"input": ("ababab", "aba", "xyz"), "expected_output": "xybxybxyb"},
+        {"input": ("Hello, world!", "x", ""), "expected_output": "Hello, world!"},
+    ]
+    for test_case in replace_test_cases:
+        input_str, target, replacement = test_case["input"]
+        expected_output = test_case["expected_output"]
+        output = replace(input_str, target, replacement)
+        print(f"Input: '{input_str}', '{target}', '{replacement}' | Output: '{output}' | Expected: '{expected_output}' | Pass: {output == expected_output}")
+
+    # Test grade_letter function
+    print("\nTesting grade_letter function:")
+    grade_letter_test_cases = [
+        {"input": 85, "expected_output": "B"},
+        {"input": 92, "expected_output": "A"},
+        {"input": 45, "expected_output": "F"},
+        {"input": 110, "expected_output": "Invalid"},
+        {"input": 100, "expected_output": "A"},
+        {"input": 73, "expected_output": "C"},
+        {"input": -10, "expected_output": "Invalid"},  # Test invalid input
+    ]
+    for test_case in grade_letter_test_cases:
+        input_score = test_case["input"]
+        expected_output = test_case["expected_output"]
+        output = grade_letter(input_score)
+        print(f"Input: {input_score} | Output: {output} | Expected: {expected_output} | Pass: {output == expected_output}")
+
+    # Test sort_students_into_grades function
+    print("\nTesting sort_students_into_grades function:")
+    students = [
+        {"name": "Alice", "grade": "A"},
+        {"name": "Bob", "grade": "B"},
+        {"name": "Charlie", "grade": "C"},
+        {"name": "David", "grade": "D"},
+        {"name": "Eve", "grade": "F"},
+        {"name": "Frank", "grade": "Invalid"},
+        {"name": "Grace", "grade": "B"},
+        {"name": "Henry", "grade": "A"},
+        {"name": "Ivy", "grade": "C"},
+        {"name": "Jack", "grade": "D"},
+        {"name": "Kate", "grade": "B"},
+        {"name": "Liam", "grade": "A"},
+        {"name": "Mia", "grade": "F"},
+    ]
+    expected_output = {
+        "A": ["Alice", "Henry", "Liam"],
+        "B": ["Bob", "Grace", "Kate"],
+        "C": ["Charlie", "Ivy"],
+        "D": ["David", "Jack"],
+        "F": ["Eve", "Mia"],
+        "Invalid": ["Frank"],
+    }
+    output = sort_students_into_grades(students)
+    print(f"Output: {output} | Expected: {expected_output} | Pass: {output == expected_output}")
