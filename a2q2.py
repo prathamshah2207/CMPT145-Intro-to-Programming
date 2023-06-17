@@ -17,9 +17,9 @@
 ###############################################################################
 
 # TODO: Fill in your information below
-# Student Name
-# NSID
-# Student Number
+# Student Name: Pratham Shah                        Section Number: 01
+# NSID: mvr659                                      Course Number: 41442
+# Student Number: 11353450                          Instructor: Lauresa Stilling
 
 ################### DO NOT ALTER CODE BELOW ###################################
 def gcd(val1: int, val2: int) -> int:
@@ -115,7 +115,28 @@ def sort_students_into_grades(student_list: list) -> dict:
 
 
 # TODO: Create tests for functions above
+
+#Tests for first function
+
+test = [50, 0]
+expected = 50
+result = gcd(test[0], test[1])
+if result != expected:
+    print("Testing gcd() with", test[0], "and", test[1], "Expected:", expected, "got:", result)
+
+test = [365, 1000]
+expected = -1
+result = gcd(test[0], test[1])
+if result != expected:
+    print("Testing gcd() with", test[0], "and", test[1], "Expected:", expected, "got:", result)
+
+test = [-150, 200]
+expected = 50
+result = gcd(test[0], test[1])
+if result != expected:
+    print("Testing gcd() with", test[0], "and", test[1], "Expected:", expected, "got:", result)
+
+
 # TODO Create test driver for whitebox tested functions
 # TODO: Create test driver for blackbox tested functions
 # TODO: Create test driver to test all functions
-
