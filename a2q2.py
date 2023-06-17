@@ -158,6 +158,28 @@ if result != expected:
     print("Testing replace() with ", test, "Expected:", expected, "got:", result)
 
 
+#Tests for third function
+
+test = -10
+expected = "Invalid"
+result = grade_letter(test)
+if result != expected:
+    print("Testing grade_letter() with ", test, "Expected:", expected, "got:", result)
+
+test = 00
+expected = "F"
+result = grade_letter(test)
+if result != expected:
+    print("Testing grade_letter() with ", test, "Expected:", expected, "got:", result)
+
+test = 70
+expected = "C"
+result = grade_letter(test)
+if result != expected:
+    print("Testing grade_letter() with ", test, "Expected:", expected, "got:", result)
+
+
+
 # TODO Create test driver for whitebox tested functions
 # TODO: Create test driver for blackbox tested functions
 # TODO: Create test driver to test all functions
