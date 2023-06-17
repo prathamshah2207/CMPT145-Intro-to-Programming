@@ -272,4 +272,68 @@ def white_box_test_driver():
 
 
 # TODO: Create test driver for blackbox tested functions
+
+
+def black_box_test_driver():
+    # Test gcd function
+    print("Testing gcd function:")
+    gcd_test_cases = [
+        {"input": (18, 9), "expected_output": 9},
+        {"input": (0, 7), "expected_output": 7},
+        {"input": (1000, 500), "expected_output": -1},
+        {"input": (-12, 8), "expected_output": 4},
+    ]
+    for test_case in gcd_test_cases:
+        input_val1, input_val2 = test_case["input"]
+        expected_output = test_case["expected_output"]
+        output = gcd(input_val1, input_val2)
+        print(f"Input: {input_val1}, {input_val2} | Output: {output} | Expected: {expected_output} | Pass: {output == expected_output}")
+
+    # Test replace function
+    print("\nTesting replace function:")
+    replace_test_cases = [
+        {"input": ("Hello, world!", "world", "earth"), "expected_output": "Hello, earth!"},
+        {"input": ("", "abc", "xyz"), "expected_output": ""},
+        {"input": ("Test test", "test", ""), "expected_output": "Test "},
+    ]
+    for test_case in replace_test_cases:
+        input_str, target, replacement = test_case["input"]
+        expected_output = test_case["expected_output"]
+        output = replace(input_str, target, replacement)
+        print(f"Input: '{input_str}', '{target}', '{replacement}' | Output: '{output}' | Expected: '{expected_output}' | Pass: {output == expected_output}")
+
+    # Test grade_letter function
+    print("\nTesting grade_letter function:")
+    grade_letter_test_cases = [
+        {"input": 110, "expected_output": "Invalid"},
+        {"input": 100, "expected_output": "A"},
+        {"input": 73, "expected_output": "C"},
+    ]
+    for test_case in grade_letter_test_cases:
+        input_score = test_case["input"]
+        expected_output = test_case["expected_output"]
+        output = grade_letter(input_score)
+        print(f"Input: {input_score} | Output: {output} | Expected: {expected_output} | Pass: {output == expected_output}")
+
+    # Test sort_students_into_grades function
+    print("\nTesting sort_students_into_grades function:")
+    students = [
+        {"name": "David", "grade": "D"},
+        {"name": "Eve", "grade": "F"},
+        {"name": "Frank", "grade": "Invalid"},
+        {"name": "Grace", "grade": "B"},
+        {"name": "Henry", "grade": "A"},
+    ]
+    expected_output = {
+        "A": ["Henry"],
+        "B": ["Grace"],
+        "C": [],
+        "D": ["David"],
+        "F": ["Eve"],
+        "Invalid": ["Frank"],
+    }
+    output = sort_students_into_grades(students)
+    print(f"Output: {output} | Expected: {expected_output} | Pass: {output == expected_output}")
+
+
 # TODO: Create test driver to test all functions
