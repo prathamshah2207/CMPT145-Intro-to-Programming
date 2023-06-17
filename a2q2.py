@@ -213,7 +213,7 @@ result = sort_students_into_grades(test)
 if result != expected:
     print("Testing sort_students_into_grades() with", test, "   Expected:", expected, " Got: ", result)
 
-est = [
+test = [
     {"name": "abhi", "grade": "A"},
     {"name": "jack ryan", "grade": "B"},
     {"name": "Charlie", "grade": "Z"},
@@ -233,5 +233,43 @@ if result != expected:
     print("Testing sort_students_into_grades() with", test, "   Expected:", expected, "Got:",result)
 
 # TODO Create test driver for whitebox tested functions
+
+def white_box_test_driver():
+    # Test gcd function
+    print("Testing gcd function:")
+    print(gcd(10, 15))  # Expected output: 5
+    print(gcd(28, 14))  # Expected output: 14
+    print(gcd(1000, 500))  # Expected output: -1 (out of range)
+
+    # Test replace function
+    print("\nTesting replace function:")
+    print(replace("Hello, world!", "o", "x"))  # Expected output: Hellx, wxrld!
+    print(replace("banana", "na", "apple"))  # Expected output: baappleapple
+    print(replace("Hello, world!", "xyz", "123"))  # Expected output: Hello, world!
+
+    # Test grade_letter function
+    print("\nTesting grade_letter function:")
+    print(grade_letter(85))  # Expected output: B
+    print(grade_letter(92))  # Expected output: A
+    print(grade_letter(45))  # Expected output: F
+    print(grade_letter(110))  # Expected output: Invalid (out of range)
+
+    # Test sort_students_into_grades function
+    print("\nTesting sort_students_into_grades function:")
+    students = [
+        {"name": "Alice", "grade": 85},
+        {"name": "Bob", "grade": 92},
+        {"name": "Charlie", "grade": 77},
+        {"name": "David", "grade": 65},
+        {"name": "Eve", "grade": 45},
+        {"name": "Frank", "grade": 110},
+        {"name": "Grace", "grade": 78},
+        {"name": "Henry", "grade": 92},
+    ]
+    result = sort_students_into_grades(students)
+    print(result)
+    # Expected output: {'A': ['Bob', 'Henry'], 'B': ['Alice'], 'C': ['Charlie', 'Grace'], 'D': ['David'], 'F': ['Eve'], 'Invalid': ['Frank']}
+
+
 # TODO: Create test driver for blackbox tested functions
 # TODO: Create test driver to test all functions
