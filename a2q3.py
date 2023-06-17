@@ -17,9 +17,9 @@
 ###############################################################################
 
 # TODO: Fill in your information below
-# Student Name
-# NSID
-# Student Number
+# Student Name: Pratham Shah                        Section Number: 01
+# NSID: mvr659                                      Course Number: 41442
+# Student Number: 11353450                          Instructor: Lauresa Stilling
 
 # Recall another name for a list of dictionaries is a record.
 
