@@ -36,8 +36,11 @@ def get_patient_people(community: list):
     Return:
         list of dictionaries of those with no foes.
     """
-    return []
-
+    patient_people = []
+    for person in community:
+        if person['foes'] == []:
+            patient_people.append(person)
+    return patient_people
 def leave_community(community: list, name:str) -> None:
     """
     Purpose: Go through the list of dictionaries passed in removing name from lists for keys "friends"
@@ -53,7 +56,14 @@ def leave_community(community: list, name:str) -> None:
     Return:
         None
     """
-    return
+    for person in community:
+        if name in person["friends"]:
+            person["friends"].remove(name)
+        if name in person["foes"]:
+            person["foes"].remove(name)
+    for person in community[:]:
+        if person["name"] == name:
+            community.remove(person)
 
 def are_community_besties(community: list, name1: str, name2: str) -> bool:
     """
@@ -73,6 +83,13 @@ def are_community_besties(community: list, name1: str, name2: str) -> bool:
         list associated with the key "friends".
         Returns True if on both "friends" and "foes" list simultaneously
     """
+    for person in community:
+        if person["name"] == name1:
+            if name2 in person["friends"]:
+                return True
+        if person["name"] == name2:
+            if name1 in person["friends"]:
+                return True
     return False
 
 def get_all_community_besties(community: list, name: str) -> list:
@@ -91,7 +108,13 @@ def get_all_community_besties(community: list, name: str) -> list:
         list associated with the key "friends"
         Still added to list if names are simultaneously in lists associated with "friends" and "foes"
     """
-    return []
+    besties = []
+    for person in community:
+        if person["name"] == name:
+            for friend in person["friends"]:
+                if are_community_besties(community, name, friend):
+                    besties.append(friend)
+    return besties
 
 
 ### TESTS
@@ -264,9 +287,9 @@ def testing():
                      "expect": False,
                      "output": are_community_besties(case5,"Elmer", "Daffy"),
                      "message": "Neither are within the community"},
-                      {"input": (case5, "Tweety", "Lola"),
+                      {"input": (case5, "Tweety", "Granny"),
                        "expect": True,
-                       "output": are_community_besties(case5,"Tweety", "Lola"),
+                       "output": are_community_besties(case5, "Tweety", "Granny"),
                        "message": "Granny and Tweety are in each other's friends lists"},
                       {"input": (case6, "Bugs", ""),
                        "expect": True,
@@ -288,7 +311,7 @@ def testing():
         # Case 5: Expected Output
         tweeties_besties = [{"name": "Granny",
               "friends": ["Bugs", "Tweety"],
-              "foes": []}],
+              "foes": []}]
         # Case 6: Expected Output
         bugs_besties = [{"name": "Tweety",
               "friends": ["Bugs","Granny"],
@@ -330,7 +353,8 @@ def testing():
             test_count += 1
             assert test["output"] == test["expect"], "Error Test Case " + str(test_count) + ": " +\
                                                        test["message"] + "\n" + \
-                                                       "Input: " + str(test["input"]) + "\n" + \
+                                                       "Input: " + str(test["input"][0]) + "\n" + \
+                                                       "\t"+ str(test["input"][1])+"\n"+\
                                                        "Expected: " + str(test["expect"]) + "\n" + \
                                                        "Output: " + str(test["output"])
         return test_count
@@ -351,7 +375,5 @@ def testing():
     print("DONE TESTING: get_all_community_besties")
     print("TESTING COMPLETE", total_tests, "PASSED!")
 
-
 if __name__=="__main__":
     testing()
-
