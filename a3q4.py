@@ -41,7 +41,7 @@ class LList(object):
         Return:
             :return The number of data values in the list
         """
-        return None
+        return self._size
 
     def prepend(self, val):
         """
