@@ -32,7 +32,7 @@ class LList(object):
         Return:
             :return True if the list has no data, or False otherwise
         """
-        return self._size == []
+        return self._size == 0
 
     def size(self):
         """
@@ -99,7 +99,15 @@ class LList(object):
             :return True, idx if the val appears in self
             :return False, None if the vale does not appear in self
         """
-        pass
+        counter = 0
+        while self._head is not None:
+            if self._head.get_data() == val:
+                return tuple([True, counter])
+            counter += 1
+            self._head = self._head.get_next()
+        return tuple([False, None])
+
+
 
     def remove_from_front(self):
         """
