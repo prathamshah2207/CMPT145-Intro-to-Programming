@@ -174,8 +174,6 @@ class LList(object):
             temp = temp.get_next()
         return tuple([True, temp.get_data()])
 
-
-
     def set_data(self, idx, val):
         """
         Purpose
@@ -188,4 +186,11 @@ class LList(object):
         Return:
             :return True if the index was valid, False otherwise
         """
-        pass
+        if self._size <= idx or idx < 0 or self._head is None:
+            return False
+
+        temp = self._head
+        for i in range(idx):
+            temp = temp.get_next()
+        temp.set_data(val)
+        return True
