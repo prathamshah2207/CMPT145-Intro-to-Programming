@@ -56,7 +56,15 @@ class LList(object):
         Return:
             :return None
         """
-        pass
+        new_node = n.Node(val)
+        if self._head is None:
+            self._head = new_node
+            self._tail = new_node
+        else:
+            new_node.set_next(self._head)
+            self._head = new_node
+        self._size += 1
+
 
     def append(self, val):
         """
