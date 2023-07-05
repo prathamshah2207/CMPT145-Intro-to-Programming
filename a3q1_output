@@ -1,0 +1,39 @@
+Student Name: Pratham Shah                        Section Number: 01
+NSID: mvr659                                      Course Number: 41442
+Student Number: 11353450                          Instructor: Lauresa Stilling
+
+
+---OUTPUT---
+
+Enter the type of container you want to make: s
+Please enter a command :
+help
+“add” Will need to prompt the user to for a value as well.
+“peak” Will give the first element of the container.
+“remove” Will remove the first element of the container.
+“help” Will print what actions are possible.
+“quit” End program.
+Please enter a command :
+add
+Please enter a value to add :
+12
+Please enter a command :
+sub
+Invalid Command
+Please enter a command :
+add
+Please enter a value to add :
+97.5
+Please enter a command :
+peak
+97.5
+Please enter a command :
+remove
+Please enter a command :
+peak
+12
+Please enter a command :
+quit
+Goodbye.
+
+Process finished with exit code 0

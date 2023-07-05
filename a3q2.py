@@ -36,9 +36,10 @@ def to_string(node_chain):
         result = '[ {} |'.format(str(value))
         while walker is not None:
             walker = walker.get_next()
-            value = walker.get_data()
+            if walker is not None:
+                value = walker.get_data()
             # represent the next with an arrow-like figure
-            result += ' *-]-->[ {} |'.format(str(value))
+                result += ' *-]-->[ {} |'.format(str(value))
 
         # at the end of the chain, use '/'
         result += ' / ]'

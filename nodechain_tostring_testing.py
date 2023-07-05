@@ -25,7 +25,7 @@ if result != expected:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result, expected, reason))
 
 
-data_in = n.Node(1, N.node('two'))
+data_in = n.Node(1, n.Node('two'))
 expected = '[ 1 | *-]-->[ two | / ]'
 reason = 'node chain with two nodes'
 
@@ -34,7 +34,7 @@ if result != expected:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result, expected, reason))
 
 
-data_in = n.Node(1, N.node('two', N.node(3)))
+data_in = n.Node(1, n.Node('two', n.Node(3)))
 expected = '[ 1 | *-]-->[ two | *-]-->[ 3 | / ]'
 reason = 'node chain with three nodes'
 

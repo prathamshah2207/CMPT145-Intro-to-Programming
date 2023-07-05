@@ -1,3 +1,7 @@
+# Student Name: Pratham Shah                        Section Number: 01
+# NSID: mvr659                                      Course Number: 41442
+# Student Number: 11353450                          Instructor: Lauresa Stilling
+
 while True:
     user_input = input("Enter the type of container you want to make: ")
     if user_input == "s":
