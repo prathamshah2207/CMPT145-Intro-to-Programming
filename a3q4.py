@@ -78,7 +78,13 @@ class LList(object):
         Return:
             :return None
         """
-        pass
+        new_node = n.Node(val)
+        if self._head is None:
+            self._head = new_node
+        else:
+            self._tail.set_next(new_node)
+        self._tail = new_node
+        self._size += 1
 
 
     def get_index_of_value(self, val):
