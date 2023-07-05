@@ -14,7 +14,7 @@
 #
 #     Run this script to see how many of your functions work!
 #
-
+import node as n
 import LList as L
 
 verbose = True  # change to False to reduce output
@@ -89,7 +89,7 @@ def test_empty_empty():
 
 def test_empty_singleton():
     # create a node chain and list by hand
-    thenode = L.node('arbitrary')
+    thenode = n.Node('arbitrary')
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -101,7 +101,7 @@ def test_empty_singleton():
 
 
 def test_size_singleton():
-    thenode = L.node('arbitrary')
+    thenode = n.Node('arbitrary')
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -151,7 +151,7 @@ def test_prepend_data_1():
     thellist = L.LList()
     target = 'one'
     thellist.prepend(target)
-    result = thellist._head.data
+    result = thellist._head.get_data()
     assert result is target, 'prepend() check data at head after insertion on empty LList; data set to ' + str(
         result) + ' but should be ' + "'" + str(target) + "'"
 
@@ -160,7 +160,7 @@ def test_prepend_data_2():
     thellist = L.LList()
     target = 'one'
     thellist.prepend(target)
-    result = thellist._tail.data
+    result = thellist._tail.get_data()
     assert result is target, 'prepend() check data at tail after insertion on empty LList; data set to ' + str(
         result) + ' but should be ' + "'" + str(target) + "'"
 
@@ -169,7 +169,7 @@ def test_prepend_end_1():
     thellist = L.LList()
     target = 'one'
     thellist.prepend(target)
-    result = thellist._head.next
+    result = thellist._head.get_next()
     assert result is None, 'prepend() check node chain after insertion on empty LList: chain should end at one node, but next is not None!'
 
 
@@ -186,7 +186,7 @@ def test_prepend_empty_1():
 ###############################################################################################
 
 def test_prepend_size_2():
-    thenode = L.node('not the target')
+    thenode = n.Node('not the target')
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -199,7 +199,7 @@ def test_prepend_size_2():
 
 
 def test_prepend_head_2():
-    thenode = L.node('not the target')
+    thenode = n.Node('not the target')
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -212,7 +212,7 @@ def test_prepend_head_2():
 
 
 def test_prepend_tail_2():
-    thenode = L.node('not the target')
+    thenode = n.Node('not the target')
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -225,7 +225,7 @@ def test_prepend_tail_2():
 
 
 def test_prepend_refs_2():
-    thenode = L.node('not the target')
+    thenode = n.Node('not the target')
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -238,7 +238,7 @@ def test_prepend_refs_2():
 
 
 def test_prepend_data_3():
-    thenode = L.node('not the target')
+    thenode = n.Node('not the target')
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -246,12 +246,12 @@ def test_prepend_data_3():
 
     target = 'two'
     thellist.prepend(target)
-    result = thellist._head.data
+    result = thellist._head.get_data()
     assert result == target, 'prepend()  on LList with one node: data not set correctly in head'
 
 
 def test_prepend_chain_2():
-    thenode = L.node('not the target')
+    thenode = n.Node('not the target')
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -259,12 +259,12 @@ def test_prepend_chain_2():
 
     target = 'two'
     thellist.prepend(target)
-    result = thellist._head.next
+    result = thellist._head.get_next()
     assert result is not None, 'prepend()  on LList with one node: chain should not end at one node'
 
 
 def test_prepend_chain_3():
-    thenode = L.node('not the target')
+    thenode = n.Node('not the target')
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -272,13 +272,13 @@ def test_prepend_chain_3():
 
     target = 'two'
     thellist.prepend(target)
-    result = thellist._head.next
+    result = thellist._head.get_next()
     assert result is thenode, 'prepend()  on LList with one node: new node should point to existing node'
 
 
 def test_prepend_data_4():
     tail_data = 'not the target'
-    thenode = L.node(tail_data)
+    thenode = n.Node(tail_data)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -286,13 +286,13 @@ def test_prepend_data_4():
 
     target = 'two'
     thellist.prepend(target)
-    result = thellist._tail.data
+    result = thellist._tail.get_data()
     assert result == tail_data, 'prepend()  on LList with one node: data not set correctly in tail'
 
 
 def test_prepend_empty_2():
     tail_data = 'not the target'
-    thenode = L.node(tail_data)
+    thenode = n.Node(tail_data)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -306,7 +306,7 @@ def test_prepend_empty_2():
 
 def test_prepend_size_3():
     tail_data = 'not the target'
-    thenode = L.node(tail_data)
+    thenode = n.Node(tail_data)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -358,7 +358,7 @@ def test_append_data_1():
     thellist = L.LList()
     target = 'three'
     thellist.append(target)
-    result = thellist._head.data
+    result = thellist._head.get_data()
     assert result == target, 'append() check data at head after insertion on empty LList: data not set correctly in head'
 
 
@@ -366,7 +366,7 @@ def test_append_data_2():
     thellist = L.LList()
     target = 'three'
     thellist.append(target)
-    result = thellist._tail.data
+    result = thellist._tail.get_data()
     assert result == target, 'append() check data at tail after insertion on empty LList: data not set correctly in tail'
 
 
@@ -374,7 +374,7 @@ def test_append_chain_1():
     thellist = L.LList()
     target = 'three'
     thellist.append(target)
-    result = thellist._head.next
+    result = thellist._head.get_next()
     assert result is None, 'append() check node chain after insertion on empty LList: chain should end at one node'
 
 
@@ -400,7 +400,7 @@ def test_append_size_2():
 
 def test_append_size_3():
     tail_data = 'not the target'
-    thenode = L.node(tail_data)
+    thenode = n.Node(tail_data)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -414,7 +414,7 @@ def test_append_size_3():
 
 def test_append_head_2():
     tail_data = 'not the target'
-    thenode = L.node(tail_data)
+    thenode = n.Node(tail_data)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -428,7 +428,7 @@ def test_append_head_2():
 
 def test_append_tail_2():
     tail_data = 'not the target'
-    thenode = L.node(tail_data)
+    thenode = n.Node(tail_data)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -442,7 +442,7 @@ def test_append_tail_2():
 
 def test_append_tail_3():
     tail_data = 'not the target'
-    thenode = L.node(tail_data)
+    thenode = n.Node(tail_data)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -456,7 +456,7 @@ def test_append_tail_3():
 
 def test_append_refs_2():
     tail_data = 'not the target'
-    thenode = L.node(tail_data)
+    thenode = n.Node(tail_data)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -470,7 +470,7 @@ def test_append_refs_2():
 
 def test_append_data_3():
     tail_data = 'not the target'
-    thenode = L.node(tail_data)
+    thenode = n.Node(tail_data)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -478,14 +478,14 @@ def test_append_data_3():
 
     target = 'four'
     thellist.append(target)
-    result = thellist._tail.data
+    result = thellist._tail.get_data()
     assert result == target, 'append() on LList with one node: data not set correctly in tail; should be ' + str(
         target) + 'but found ' + str(result)
 
 
 def test_append_data_4():
     tail_data = 'not the target'
-    thenode = L.node(tail_data)
+    thenode = n.Node(tail_data)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -493,14 +493,14 @@ def test_append_data_4():
 
     target = 'four'
     thellist.append(target)
-    result = thellist._head.data
+    result = thellist._head.get_data()
     assert result != target, 'append() on LList with one node: data not set correctly in head; should be ' + str(
         target) + 'but found ' + str(result)
 
 
 def test_append_chain_2():
     tail_data = 'not the target'
-    thenode = L.node(tail_data)
+    thenode = n.Node(tail_data)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -508,13 +508,13 @@ def test_append_chain_2():
 
     target = 'four'
     thellist.append(target)
-    result = thellist._head.next
+    result = thellist._head.get_next()
     assert result is not None, 'append() on LList with one node: chain ended at one node, but should not'
 
 
 def test_append_empty_2():
     tail_data = 'not the target'
-    thenode = L.node(tail_data)
+    thenode = n.Node(tail_data)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -528,7 +528,7 @@ def test_append_empty_2():
 
 def test_append_size_4():
     tail_data = 'not the target'
-    thenode = L.node(tail_data)
+    thenode = n.Node(tail_data)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -562,7 +562,7 @@ def test_get_index_of_value_empty_idx_1():
 
 def test_get_index_of_value_notempty_flag_1():
     tail_data = 'not the target'
-    thenode = L.node(tail_data)
+    thenode = n.Node(tail_data)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -576,7 +576,7 @@ def test_get_index_of_value_notempty_flag_1():
 
 def test_get_index_of_value_notempty_idx_1():
     tail_data = 'not the target'
-    thenode = L.node(tail_data)
+    thenode = n.Node(tail_data)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -590,7 +590,7 @@ def test_get_index_of_value_notempty_idx_1():
 
 def test_get_index_of_value_notempty_flag_2():
     target = '10'
-    thenode = L.node(target)
+    thenode = n.Node(target)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -603,7 +603,7 @@ def test_get_index_of_value_notempty_flag_2():
 
 def test_get_index_of_value_notempty_idx_2():
     target = '10'
-    thenode = L.node(target)
+    thenode = n.Node(target)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -617,8 +617,8 @@ def test_get_index_of_value_notempty_idx_2():
 
 def test_get_index_of_value_notempty_flag_3():
     target = '10'
-    thetail = L.node('not the target')
-    thehead = L.node('not the target', thetail)
+    thetail = n.Node('not the target')
+    thehead = n.Node('not the target', thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -631,8 +631,8 @@ def test_get_index_of_value_notempty_flag_3():
 
 def test_get_index_of_value_notempty_idx_3():
     target = '10'
-    thetail = L.node('not the target')
-    thehead = L.node('not the target', thetail)
+    thetail = n.Node('not the target')
+    thehead = n.Node('not the target', thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -645,8 +645,8 @@ def test_get_index_of_value_notempty_idx_3():
 
 def test_get_index_of_value_notempty_flag_4():
     target = '10'
-    thetail = L.node(target)
-    thehead = L.node('not the target', thetail)
+    thetail = n.Node(target)
+    thehead = n.Node('not the target', thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -659,8 +659,8 @@ def test_get_index_of_value_notempty_flag_4():
 
 def test_get_index_of_value_notempty_idx_4():
     target = '10'
-    thetail = L.node(target)
-    thehead = L.node('not the target', thetail)
+    thetail = n.Node(target)
+    thehead = n.Node('not the target', thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -674,8 +674,8 @@ def test_get_index_of_value_notempty_idx_4():
 
 def test_get_index_of_value_notempty_flag_5():
     target = '10'
-    thetail = L.node('not the target')
-    thehead = L.node(target, thetail)
+    thetail = n.Node('not the target')
+    thehead = n.Node(target, thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -688,8 +688,8 @@ def test_get_index_of_value_notempty_flag_5():
 
 def test_get_index_of_value_notempty_idx_5():
     target = '10'
-    thetail = L.node('not the target')
-    thehead = L.node(target, thetail)
+    thetail = n.Node('not the target')
+    thehead = n.Node(target, thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -723,7 +723,7 @@ def test_retrieve_data_at_val_1():
 
 def test_retrieve_data_at_flag_2():
     target = 12
-    thenode = L.node(target)
+    thenode = n.Node(target)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -736,7 +736,7 @@ def test_retrieve_data_at_flag_2():
 
 def test_retrieve_data_at_val_2():
     target = 12
-    thenode = L.node(target)
+    thenode = n.Node(target)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -749,8 +749,8 @@ def test_retrieve_data_at_val_2():
 
 
 def test_retrieve_data_at_flag_3():
-    thetail = L.node(16)
-    thehead = L.node(18, thetail)
+    thetail = n.Node(16)
+    thehead = n.Node(18, thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -764,8 +764,8 @@ def test_retrieve_data_at_flag_3():
 
 def test_retrieve_data_at_val_3():
     target = 18
-    thetail = L.node(16)
-    thehead = L.node(target, thetail)
+    thetail = n.Node(16)
+    thehead = n.Node(target, thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -779,8 +779,8 @@ def test_retrieve_data_at_val_3():
 
 
 def test_retrieve_data_at_flag_4():
-    thetail = L.node(16)
-    thehead = L.node(18, thetail)
+    thetail = n.Node(16)
+    thehead = n.Node(18, thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -794,8 +794,8 @@ def test_retrieve_data_at_flag_4():
 
 def test_retrieve_data_at_val_4():
     target = 16
-    thetail = L.node(16)
-    thehead = L.node(18, thetail)
+    thetail = n.Node(16)
+    thehead = n.Node(18, thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -809,8 +809,8 @@ def test_retrieve_data_at_val_4():
 
 
 def test_retrieve_data_at_flag_5():
-    thetail = L.node(16)
-    thehead = L.node(18, thetail)
+    thetail = n.Node(16)
+    thehead = n.Node(18, thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -823,8 +823,8 @@ def test_retrieve_data_at_flag_5():
 
 
 def test_retrieve_data_at_val_5():
-    thetail = L.node(16)
-    thehead = L.node(18, thetail)
+    thetail = n.Node(16)
+    thehead = n.Node(18, thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -851,7 +851,7 @@ def test_set_data_empty():
 
 def test_set_data_notempty_flag_1():
     target = 23
-    thenode = L.node('not the target')
+    thenode = n.Node('not the target')
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -865,7 +865,7 @@ def test_set_data_notempty_flag_1():
 
 def test_set_data_notempty_data_1():
     target = 23
-    thenode = L.node('not the target')
+    thenode = n.Node('not the target')
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -873,14 +873,14 @@ def test_set_data_notempty_data_1():
 
     idx = 0
     flag = thellist.set_data(idx, target)
-    result = thellist._head.data
+    result = thellist._head.get_data()
     assert result == target, 'set_data() on singleton LList, valid index; data not set correctly'
 
 
 def test_set_data_notempty_flag_2():
     target = 23
-    thetail = L.node('not the target')
-    thehead = L.node('not the target', thetail)
+    thetail = n.Node('not the target')
+    thehead = n.Node('not the target', thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -894,8 +894,8 @@ def test_set_data_notempty_flag_2():
 
 def test_set_data_notempty_data_2():
     target = 23
-    thetail = L.node('not the target')
-    thehead = L.node('not the target', thetail)
+    thetail = n.Node('not the target')
+    thehead = n.Node('not the target', thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -903,14 +903,14 @@ def test_set_data_notempty_data_2():
 
     idx = 0
     flag = thellist.set_data(idx, target)
-    result = thellist._head.data
+    result = thellist._head.get_data()
     assert result == target, 'set_data() on LList with 2 nodes, index 0; data not set correctly'
 
 
 def test_set_data_notempty_flag_3():
     target = 23
-    thetail = L.node('not the target')
-    thehead = L.node('not the target', thetail)
+    thetail = n.Node('not the target')
+    thehead = n.Node('not the target', thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -924,8 +924,8 @@ def test_set_data_notempty_flag_3():
 
 def test_set_data_notempty_data_3():
     target = 23
-    thetail = L.node('not the target')
-    thehead = L.node('not the target', thetail)
+    thetail = n.Node('not the target')
+    thehead = n.Node('not the target', thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -933,14 +933,14 @@ def test_set_data_notempty_data_3():
 
     idx = 1
     flag = thellist.set_data(idx, target)
-    result = thellist._tail.data
+    result = thellist._tail.get_data()
     assert result == target, 'set_data() on LList with 2 nodes, index 1; data not set correctly'
 
 
 def test_set_data_notempty_flag_4():
     target = 23
-    thetail = L.node('not the target')
-    thehead = L.node('not the target', thetail)
+    thetail = n.Node('not the target')
+    thehead = n.Node('not the target', thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -954,8 +954,8 @@ def test_set_data_notempty_flag_4():
 
 def test_set_data_notempty_data_4():
     target = 23
-    thetail = L.node('not the target')
-    thehead = L.node('not the target', thetail)
+    thetail = n.Node('not the target')
+    thehead = n.Node('not the target', thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -963,14 +963,14 @@ def test_set_data_notempty_data_4():
 
     idx = 2
     flag = thellist.set_data(idx, target)
-    result = thellist._head.data
+    result = thellist._head.get_data()
     assert result == 'not the target', 'set_data() on LList with 2 nodes, invalid positive index; data at head changed incorrectly'
 
 
 def test_set_data_notempty_data_5():
     target = 23
-    thetail = L.node('not the target')
-    thehead = L.node('not the target', thetail)
+    thetail = n.Node('not the target')
+    thehead = n.Node('not the target', thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -978,7 +978,7 @@ def test_set_data_notempty_data_5():
 
     idx = 2
     flag = thellist.set_data(idx, target)
-    result = thellist._tail.data
+    result = thellist._tail.get_data()
     assert result == 'not the target', 'set_data() on LList with 2 nodes, invalid positive index; data at tail changed incorrectly'
 
 
@@ -1002,7 +1002,7 @@ def test_remove_from_front_empty_2():
 
 def test_remove_from_front_singleton_in_flag_1():
     target = 25
-    thenode = L.node(target)
+    thenode = n.Node(target)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -1015,7 +1015,7 @@ def test_remove_from_front_singleton_in_flag_1():
 
 def test_remove_from_front_singleton_in_val_1():
     target = 25
-    thenode = L.node(target)
+    thenode = n.Node(target)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -1029,7 +1029,7 @@ def test_remove_from_front_singleton_in_val_1():
 
 def test_remove_from_front_singleton_in_size_1():
     target = 25
-    thenode = L.node(target)
+    thenode = n.Node(target)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -1042,7 +1042,7 @@ def test_remove_from_front_singleton_in_size_1():
 
 def test_remove_from_front_singleton_in_ref_head_1():
     target = 25
-    thenode = L.node(target)
+    thenode = n.Node(target)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -1055,7 +1055,7 @@ def test_remove_from_front_singleton_in_ref_head_1():
 
 def test_remove_from_front_singleton_in_ref_tail_1():
     target = 25
-    thenode = L.node(target)
+    thenode = n.Node(target)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -1067,8 +1067,8 @@ def test_remove_from_front_singleton_in_ref_tail_1():
 
 
 def test_remove_from_front_notempty_in_flag_2():
-    thetail = L.node(29)
-    thehead = L.node(33, thetail)
+    thetail = n.Node(29)
+    thehead = n.Node(33, thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -1081,8 +1081,8 @@ def test_remove_from_front_notempty_in_flag_2():
 
 
 def test_remove_from_front_notempty_in_val_2():
-    thetail = L.node(29)
-    thehead = L.node(33, thetail)
+    thetail = n.Node(29)
+    thehead = n.Node(33, thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -1096,8 +1096,8 @@ def test_remove_from_front_notempty_in_val_2():
 
 
 def test_remove_from_front_notempty_in_size_2():
-    thetail = L.node(29)
-    thehead = L.node(33, thetail)
+    thetail = n.Node(29)
+    thehead = n.Node(33, thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -1110,8 +1110,8 @@ def test_remove_from_front_notempty_in_size_2():
 
 
 def test_remove_from_front_notempty_in_ref_head_2():
-    thetail = L.node(29)
-    thehead = L.node(33, thetail)
+    thetail = n.Node(29)
+    thehead = n.Node(33, thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -1123,8 +1123,8 @@ def test_remove_from_front_notempty_in_ref_head_2():
 
 
 def test_remove_from_front_notempty_in_ref_tail_2():
-    thetail = L.node(29)
-    thehead = L.node(33, thetail)
+    thetail = n.Node(29)
+    thehead = n.Node(33, thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -1155,7 +1155,7 @@ def test_remove_from_back_empty_val():
 
 def test_remove_from_back_singleton_flag():
     target = 25
-    thenode = L.node(target)
+    thenode = n.Node(target)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -1168,7 +1168,7 @@ def test_remove_from_back_singleton_flag():
 
 def test_remove_from_back_singleton_val():
     target = 25
-    thenode = L.node(target)
+    thenode = n.Node(target)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -1181,7 +1181,7 @@ def test_remove_from_back_singleton_val():
 
 def test_remove_from_back_singleton_size():
     target = 25
-    thenode = L.node(target)
+    thenode = n.Node(target)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -1194,7 +1194,7 @@ def test_remove_from_back_singleton_size():
 
 def test_remove_from_back_singleton_in_ref_head_1():
     target = 25
-    thenode = L.node(target)
+    thenode = n.Node(target)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -1207,7 +1207,7 @@ def test_remove_from_back_singleton_in_ref_head_1():
 
 def test_remove_from_back_singleton_in_ref_tail_1():
     target = 25
-    thenode = L.node(target)
+    thenode = n.Node(target)
     thellist = L.LList()
     thellist._size = 1
     thellist._head = thenode
@@ -1219,8 +1219,8 @@ def test_remove_from_back_singleton_in_ref_tail_1():
 
 
 def test_remove_from_back_multiple_flag():
-    thetail = L.node(29)
-    thehead = L.node(33, thetail)
+    thetail = n.Node(29)
+    thehead = n.Node(33, thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -1233,8 +1233,8 @@ def test_remove_from_back_multiple_flag():
 
 
 def test_remove_from_back_multiple_val():
-    thetail = L.node(29)
-    thehead = L.node(33, thetail)
+    thetail = n.Node(29)
+    thehead = n.Node(33, thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -1247,8 +1247,8 @@ def test_remove_from_back_multiple_val():
 
 
 def test_remove_from_back_multiple_size():
-    thetail = L.node(29)
-    thehead = L.node(33, thetail)
+    thetail = n.Node(29)
+    thehead = n.Node(33, thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -1261,8 +1261,8 @@ def test_remove_from_back_multiple_size():
 
 
 def test_remove_from_back_multiple_in_ref_head_2():
-    thetail = L.node(29)
-    thehead = L.node(33, thetail)
+    thetail = n.Node(29)
+    thehead = n.Node(33, thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead
@@ -1274,8 +1274,8 @@ def test_remove_from_back_multiple_in_ref_head_2():
 
 
 def test_remove_from_back_multiple_in_ref_tail_2():
-    thetail = L.node(29)
-    thehead = L.node(33, thetail)
+    thetail = n.Node(29)
+    thehead = n.Node(33, thetail)
     thellist = L.LList()
     thellist._size = 2
     thellist._head = thehead

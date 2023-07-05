@@ -11,10 +11,10 @@
 # Synopsis:
 #   Question nodechain_sumcountreplace tests code
 
-# import nodechain_sumcountreplace_provided as sumcountreplace_file
 import a3q3 as sumcountreplace_file
-# import nodechain_tostring as tostring_file
 import a3q2 as tostring_file
+import node as n
+
 
 ####################################################################################################
 #### UNIT TEST CASE: sumnc() ####
@@ -24,7 +24,7 @@ data_in = None
 expected = 0
 reason = 'Empty node chain'
 
-result = tostring_file.sumnc(data_in)
+result = sumcountreplace_file.sumnc(data_in)
 if result != expected:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result, expected, reason))
 
@@ -35,7 +35,7 @@ data_in = n.Node(1)
 expected = 1
 reason = 'node chain with one node'
 
-result = tostring_file.sumnc(data_in)
+result = sumcountreplace_file.sumnc(data_in)
 if result != expected:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result, expected, reason))
 
@@ -45,7 +45,7 @@ data_in = n.Node(1, n.Node(-2))
 expected = -1
 reason = 'node chain with two nodes'
 
-result = tostring_file.sumnc(data_in)
+result = sumcountreplace_file.sumnc(data_in)
 if result != expected:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result, expected, reason))
 
@@ -55,7 +55,7 @@ data_in = n.Node(1, n.Node(-2, n.Node(3)))
 expected = 2
 reason = 'node chain with three nodes'
 
-result = tostring_file.sumnc(data_in)
+result = sumcountreplace_file.sumnc(data_in)
 if result != expected:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result, expected, reason))
 
@@ -69,7 +69,7 @@ value_in = None
 expected = 0
 reason = 'Empty node chain'
 
-result = tostring_file.count_in(chain_in, value_in)
+result = sumcountreplace_file.count_in(chain_in, value_in)
 if result != expected:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result, expected, reason))
 
@@ -80,7 +80,7 @@ value_in = 0
 expected = 0
 reason = 'node chain with one node, value not present'
 
-result = tostring_file.count_in(chain_in, value_in)
+result = sumcountreplace_file.count_in(chain_in, value_in)
 if result != expected:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result, expected, reason))
 
@@ -91,7 +91,7 @@ value_in = 7
 expected = 1
 reason = 'node chain with one node, value present'
 
-result = tostring_file.count_in(chain_in, value_in)
+result = sumcountreplace_file.count_in(chain_in, value_in)
 if result != expected:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result, expected, reason))
 
@@ -103,7 +103,7 @@ value_in = 7
 expected = 0
 reason = 'node chain with two nodes, value not present'
 
-result = tostring_file.count_in(chain_in, value_in)
+result = sumcountreplace_file.count_in(chain_in, value_in)
 if result != expected:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result, expected, reason))
 
@@ -114,7 +114,7 @@ value_in = 'two'
 expected = 1
 reason = 'node chain with two nodes, value present last'
 
-result = tostring_file.count_in(chain_in, value_in)
+result = sumcountreplace_file.count_in(chain_in, value_in)
 if result != expected:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result, expected, reason))
 
@@ -125,7 +125,7 @@ value_in = 'one'
 expected = 1
 reason = 'node chain with two nodes, value present first'
 
-result = tostring_file.count_in(chain_in, value_in)
+result = sumcountreplace_file.count_in(chain_in, value_in)
 if result != expected:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result, expected, reason))
 
@@ -137,7 +137,7 @@ value_in = True
 expected = 2
 reason = 'node chain with two nodes, value present twice'
 
-result = tostring_file.count_in(chain_in, value_in)
+result = sumcountreplace_file.count_in(chain_in, value_in)
 if result != expected:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result, expected, reason))
 
@@ -148,7 +148,7 @@ value_in = 1
 expected = 3
 reason = 'node chain with three nodes, value present multiple times'
 
-result = tostring_file.count_in(chain_in, value_in)
+result = sumcountreplace_file.count_in(chain_in, value_in)
 if result != expected:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result, expected, reason))
 
@@ -159,7 +159,7 @@ value_in = 555
 expected = 0
 reason = 'node chain with four nodes, value not present'
 
-result = tostring_file.count_in(chain_in, value_in)
+result = sumcountreplace_file.count_in(chain_in, value_in)
 if result != expected:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result, expected, reason))
 
@@ -174,8 +174,8 @@ repl_in = 0
 expected_str = "EMPTY"
 reason = 'empty node chain'
 
-tostring_file.replace_in(chain_in, target_in, repl_in)
-result_str = sumcountreplace_file.to_string(chain_in)
+sumcountreplace_file.replace_in(chain_in, target_in, repl_in)
+result_str = tostring_file.to_string(chain_in)
 if result_str != expected_str:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result_str, expected_str, reason))
 
@@ -187,8 +187,8 @@ repl_in = 0
 expected_str = "[ 0 | / ]"
 reason = 'node chain with one node, target replaced'
 
-tostring_file.replace_in(chain_in, target_in, repl_in)
-result_str = sumcountreplace_file.to_string(chain_in)
+sumcountreplace_file.replace_in(chain_in, target_in, repl_in)
+result_str = tostring_file.to_string(chain_in)
 if result_str != expected_str:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result_str, expected_str, reason))
 
@@ -199,8 +199,8 @@ repl_in = 1
 expected_str = "[ 1 | / ]"
 reason = 'node chain with one node, target not present'
 
-tostring_file.replace_in(chain_in, target_in, repl_in)
-result_str = sumcountreplace_file.to_string(chain_in)
+sumcountreplace_file.replace_in(chain_in, target_in, repl_in)
+result_str = tostring_file.to_string(chain_in)
 if result_str != expected_str:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result_str, expected_str, reason))
 
@@ -212,8 +212,8 @@ repl_in = 1
 expected_str = "[ 1 | *-]-->[ 2 | / ]"
 reason = 'node chain with two nodes, target not present'
 
-tostring_file.replace_in(chain_in, target_in, repl_in)
-result_str = sumcountreplace_file.to_string(chain_in)
+sumcountreplace_file.replace_in(chain_in, target_in, repl_in)
+result_str = tostring_file.to_string(chain_in)
 if result_str != expected_str:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result_str, expected_str, reason))
 
@@ -225,8 +225,8 @@ repl_in = 10
 expected_str = "[ 10 | *-]-->[ 2 | / ]"
 reason = 'node chain with two nodes, target present first'
 
-tostring_file.replace_in(chain_in, target_in, repl_in)
-result_str = sumcountreplace_file.to_string(chain_in)
+sumcountreplace_file.replace_in(chain_in, target_in, repl_in)
+result_str = tostring_file.to_string(chain_in)
 if result_str != expected_str:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result_str, expected_str, reason))
 
@@ -238,8 +238,8 @@ repl_in = 10
 expected_str = "[ 1 | *-]-->[ 10 | / ]"
 reason = 'node chain with two nodes, target present last'
 
-tostring_file.replace_in(chain_in, target_in, repl_in)
-result_str = sumcountreplace_file.to_string(chain_in)
+sumcountreplace_file.replace_in(chain_in, target_in, repl_in)
+result_str = tostring_file.to_string(chain_in)
 if result_str != expected_str:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result_str, expected_str, reason))
 
@@ -250,8 +250,8 @@ repl_in = 10
 expected_str = "[ 10 | *-]-->[ 2 | *-]-->[ 3 | *-]-->[ 10 | *-]-->[ 4 | / ]"
 reason = 'node chain with multiple nodes, target present multiple times'
 
-tostring_file.replace_in(chain_in, target_in, repl_in)
-result_str = sumcountreplace_file.to_string(chain_in)
+sumcountreplace_file.replace_in(chain_in, target_in, repl_in)
+result_str = tostring_file.to_string(chain_in)
 if result_str != expected_str:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result_str, expected_str, reason))
 
