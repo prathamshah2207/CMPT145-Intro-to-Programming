@@ -15,7 +15,7 @@
 #     Run this script to see how many of your functions work!
 #
 import node as n
-import LList as L
+import a3q4 as L
 
 verbose = True  # change to False to reduce output
 

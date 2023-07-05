@@ -1,4 +1,4 @@
-    # CMPT 145 Course material
+# CMPT 145 Course material
 # Copyright (c) 2017-2020 Michael C Horsch
 # All rights reserved.
 #
@@ -65,7 +65,6 @@ class LList(object):
             self._head = new_node
         self._size += 1
 
-
     def append(self, val):
         """
         Purpose
@@ -85,7 +84,6 @@ class LList(object):
             self._tail.set_next(new_node)
         self._tail = new_node
         self._size += 1
-
 
     def get_index_of_value(self, val):
         """
@@ -107,20 +105,27 @@ class LList(object):
             self._head = self._head.get_next()
         return tuple([False, None])
 
-
-
     def remove_from_front(self):
         """
         Purpose
             Removes and returns the first value 
         Post-conditions:
             The list decreases in size.
-            The returned value is no longer in in the list.
+            The returned value is no longer in the list.
         Return:
             :return The pair (True, value) if self is not empty
             :return The pair (False, None) if self is empty
         """
-        pass
+
+        if self._head is None:
+            return tuple([False, None])
+        temp = self._head.get_data()
+        self._head = self._head.get_next()
+        self._size -= 1
+
+        if self._size == 0:
+            self._tail = None
+        return tuple([True, temp])
 
     def remove_from_back(self):
         """
@@ -128,7 +133,7 @@ class LList(object):
             Removes and returns the last value
         Post-conditions:
             The list decreases in size.
-            The returned value is no longer in in the list.
+            The returned value is no longer in the list.
         Return:
             :return The pair True, value if self is not empty
             :return The pair False, None if self is empty
@@ -162,4 +167,3 @@ class LList(object):
             :return True if the index was valid, False otherwise
         """
         pass
-
