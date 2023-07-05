@@ -27,7 +27,12 @@ def sumnc(node_chain):
     Return
             :return: the sum of the data values in the node chain
     """
-    return None
+    if node_chain is None:
+        return 0
+    else:
+        walker = node_chain
+        value = walker.get_data()
+        return value + sumnc(walker.get_next())
     
 
 def count_in(node_chain, value):
