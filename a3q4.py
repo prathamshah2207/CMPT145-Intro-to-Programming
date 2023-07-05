@@ -1,4 +1,4 @@
-# CMPT 145 Course material
+    # CMPT 145 Course material
 # Copyright (c) 2017-2020 Michael C Horsch
 # All rights reserved.
 #
@@ -32,7 +32,7 @@ class LList(object):
         Return:
             :return True if the list has no data, or False otherwise
         """
-        return None
+        return self._size == []
 
     def size(self):
         """
