@@ -1,0 +1,19 @@
+Student Name: Pratham Shah		Section Number: 01
+NSID: mvr659                            Course Number: 41442
+Student Number: 11353450		Instructor: Lauresa Stilling
+
+(a) The big-O time complexity of the `search` function is O(n), where n is the length of the list `L`. This is so that the function can iterate through the list until it finds the target or reaches the end of the list, which is done using a while loop. The loop iterates through all n elements of the list in the worst case, which results in linear time complexity.
+
+(b) The big-O time complexity of the `repeat` function is O(1) or constant time. This is because of the for loop in the function, which, regardless of the input integer 'x' value, iterates exactly 1000 times. There is a constant time complexity because the number of iterations is fixed and independent of the input's size.
+
+(c) The big-O time complexity of the `compare` function is O(1) or constant time. This is so because the function only contains if-else conditions that compare two integers. These statements have a constant time complexity because their execution time is independent of the size of the integer inputs.
+
+(d) The big-O time complexity of the `is_prime` function is O(sqrt(a)), where a is the input integer. The for loop used by the function, which iterates up to the square root of the integer input, is the reason for this. The loop determines which numbers, starting at 2, are divisible by the input integer. The time complexity is proportional to the square root of the input as the loop iterates up to the square root, yielding an O(sqrt(a)) time complexity.
+	
+(e) The big-O time complexity of the `find_triples` function is O(n log n), where n is the length of the list `L`. This is due to the function's initial sorting of the list using the O(n log n)-complex'sorted' function. After that, it performs one iteration of constant-time operations on the sorted list. As a result, the sorting step accounts for the bulk of the time complexity, which is O(n log n).
+
+(f) The big-O time complexity of the `interleave` function is O(n), where n is the minimum length between the two input lists `L1` and `L2`. This is due to the function's use of a while loop, which iterates until the shorter list's end. A linear time complexity is produced because the length of the shorter list controls the number of iterations.
+
+(g) The big-O notation for the time needed to complete a single elimination tournament with N players is O(log N). This is due to the fact that the number of players is halved in each round of the competition. In the worst case, approximately log base 2 of N rounds would be required to decide the winner. As a result, the time complexity is exponential.
+
+(h) The big-O notation for the time needed to complete a round-robin tournament with N players is O(N^2). This is due to the requirement that each player play every other player exactly once, which results in N(N-1)/2 matches. As the number of matches increases quadratically with the number of players, this asymptotically simplifies to O(N2).
