@@ -1,0 +1,19 @@
+Student Name: Pratham Shah		Section Number: 01
+NSID: mvr659                            Course Number: 41442
+Student Number: 11353450		Instructor: Lauresa Stilling
+
+(a) The function definition begins on line 16. Similar to Python, the function definition in C is there followed by the function name i.e. fizzbuzz and then it has parameters in parenthesis after the function name defined and it takes an integer parameter 'n'.
+
+(b) The function call occurs on line 38. Similar to Python, the function name is followed by parentheses. What makes it differ from Python is that  in C, the function call does not have any assignment or expression around it.
+
+
+(c) Name of a variable: 'i' (line 17).
+    Name of a parameter: 'n' (line 16).
+    Name of an argument: 'input' (line 35).
+(d) Line 18-31 has a for loop which is another concept recognized.
+
+(e) The FizzBuzz problem is being implemented in the code. The user enters a number, and the fizzbuzz function is then called with that input. The fizzbuzz function checks each number in a loop that runs from 1 to the input number. It prints "FizzBuzz" if the number is divisible by both 3 and 5. "Fizz" is displayed if the number is only divisible by 3. "Buzz" is displayed if the number is only divisible by 5. If not, the number itself is printed. The output is displayed by the program using printf.
+
+(f)Did not use any external resources to answer these questions. 
+
+(g) The time complexity of the program is O(n), where 'n' is the input number provided by the user. This is because the program loops from 1 to 'n' in the fizzbuzz function, performing constant time operations for each iteration.
