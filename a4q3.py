@@ -39,7 +39,7 @@ def copy(node_chain):
         Reference to the first node in the new chain.
     """
     if node_chain is None:
-        return None
+        return 'Empty'
 
     value = node_chain.get_data()
     next_node = node_chain.get_next()
@@ -65,7 +65,7 @@ def replace_in(node_chain, target, replacement):
         None
     """
     if node_chain is None:
-        return 0
+        return 'EMPTY'
     else:
         walker = node_chain
         value = walker.get_data()
