@@ -25,3 +25,26 @@ def to_string(node_chain):
         else:
             next_str = to_string(next_node)
             return '[ {} | *-]-->{}'.format(str(value), next_str)
+
+
+def copy(node_chain):
+    """
+    Purpose:
+        Create a separate distinct copy of the node chain.
+    Pre-conditions:
+        :param node_chain: A node-chain, possibly empty (None)
+    Post-conditions:
+        A new node-chain is created with the same values and order, but it is a separate distinct chain.
+    Return:
+        Reference to the first node in the new chain.
+    """
+    if node_chain is None:
+        return None
+
+    value = node_chain.get_data()
+    next_node = node_chain.get_next()
+
+    copied_node = n.node(value)
+    copied_node.set_next(copy(next_node))
+
+    return copied_node
