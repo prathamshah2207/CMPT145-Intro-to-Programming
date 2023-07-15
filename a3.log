@@ -1,0 +1,107 @@
+Student Name: Pratham Shah                        Section Number: 01
+NSID: mvr659                                      Course Number: 41442
+Student Number: 11353450                          Instructor: Lauresa Stilling
+
+---Git Log for all Questions---
+
+
+Author: mvr659 <mvr659@usask.ca>
+Date:   Wed Jul 5 13:28:51 2023 -0600
+
+    a3q4 - Completed set_data() functionality with all provided 143 tests passed.
+
+commit 6545f9887c21bf35fe1f57b86c30fc8dbcb83040
+Author: mvr659 <mvr659@usask.ca>
+Date:   Wed Jul 5 13:17:26 2023 -0600
+
+    a3q4 - Completed retrieve_data() functionality with 126 tests passed
+
+commit 63fd98416c52cfc5c2a6098b1c3386abe61cb9a5
+Author: mvr659 <mvr659@usask.ca>
+Date:   Wed Jul 5 12:52:53 2023 -0600
+
+    a3q4 - Completed remove_from_back() functionality with 106 tests passed
+
+commit 6b56fccf20edb92e31c2faa66e70638775ff4123
+Author: mvr659 <mvr659@usask.ca>
+Date:   Wed Jul 5 12:09:55 2023 -0600
+
+    a3q4 - Completed remove_from_front() functionality with 92 tests passed
+
+commit 39789ddc3523bd10343be3a1aca3176ab468dacc
+Author: mvr659 <mvr659@usask.ca>
+Date:   Wed Jul 5 11:34:15 2023 -0600
+
+    a3q4 - Completed get_index_of_value() functionality with 77 tests passed
+
+commit 0d07ba57eab9f7fc0f1cebbefb0816ca444ed9c8
+Author: mvr659 <mvr659@usask.ca>
+Date:   Wed Jul 5 09:40:13 2023 -0600
+
+    a3q4 - Completed append() functionality with 51 tests passed
+
+commit 33b41cfd02a0b31e0137c12647d3fcd120aa139c
+Author: mvr659 <mvr659@usask.ca>
+Date:   Wed Jul 5 09:34:22 2023 -0600
+
+    a3q4 - Completed prepend() functionality with 34 tests passed
+
+commit 7fc1ff73726e8c7a4c9ca45d8a508aaedc402b1e
+Author: mvr659 <mvr659@usask.ca>
+Date:   Wed Jul 5 08:20:23 2023 -0600
+
+    a3q4 - Completed size() functionality with 20 tests passed
+
+commit 45d2bfe8915e0c50e6a1ea14b704ae056e5f1d1d
+Author: mvr659 <mvr659@usask.ca>
+Date:   Wed Jul 5 08:17:09 2023 -0600
+
+    a3q4 - Completed is_empty() functionality with 19 tests passed
+
+commit dae24910c1cefac298ad096073102f29bf6e3e0b
+Author: mvr659 <mvr659@usask.ca>
+Date:   Wed Jul 5 07:07:02 2023 -0600
+
+    Provided personal details in all the files as per requirement
+
+commit 9bf92d46dbf0f529c054b878d0acb338cca3b132
+Author: mvr659 <mvr659@usask.ca>
+Date:   Wed Jul 5 06:38:26 2023 -0600
+
+    A3Q3 - Made the replace_in function that passes all the replace_in test cases successfully
+
+commit 4d78941b02cb084ae3c51b418bd9ad356cc9a209
+Author: mvr659 <mvr659@usask.ca>
+Date:   Wed Jul 5 06:06:34 2023 -0600
+
+    A3Q3 - Made the count_in function that passes all the count_in test cases successfully
+
+commit d67a75108929de426b93f75cef299aaedbe0267e
+Author: mvr659 <mvr659@usask.ca>
+Date:   Wed Jul 5 05:54:12 2023 -0600
+
+    A3Q3 - Made the sumnc function that passes all the sumnc test cases successfully
+
+commit 8fdb69d0c6b1abeac7e2170314bb3d90d8b54696
+Author: mvr659 <mvr659@usask.ca>
+Date:   Wed Jul 5 05:00:58 2023 -0600
+
+    Updated Files
+
+commit a78898ea73aff2b87fe3dc3d74917277c98e274c
+Author: mvr659 <mvr659@usask.ca>
+Date:   Wed Jul 5 04:00:44 2023 -0600
+
+    A3Q2 - Debugged the function to_string() to work correctly and pass all tests provided
+
+commit 69cc768ef0a2f3a2838cd28cc2ebced7418ce5b8
+Author: mvr659 <mvr659@usask.ca>
+Date:   Tue Jul 4 19:47:27 2023 -0600
+
+    A3Q1 - Implemented REPL with every functionality provided
+
+commit 8841b205cfb13cd9b87ca033f6fef1927a55be0e
+Author: prathamshah2207 <77614884+prathamshah2207@users.noreply.github.com>
+Date:   Mon Jul 3 20:28:34 2023 -0600
+
+    Add files via upload

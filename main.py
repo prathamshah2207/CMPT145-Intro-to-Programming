@@ -1,4 +1,4 @@
-def het():
-    return tuple([True, None])
+import random
 
-print(het())
+l = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+print(random.choice(l))

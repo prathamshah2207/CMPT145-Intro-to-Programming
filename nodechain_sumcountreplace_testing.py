@@ -181,7 +181,7 @@ if result_str != expected_str:
 
 
 #### UNIT TEST CASE: replace_in() ####
-chain_in = n.Node(1)
+chain_in = n.node(1)
 target_in = 1
 repl_in = 0
 expected_str = "[ 0 | / ]"
@@ -193,7 +193,7 @@ if result_str != expected_str:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result_str, expected_str, reason))
 
 #### UNIT TEST CASE: replace_in() ####
-chain_in = n.Node(1)
+chain_in = n.node(1)
 target_in = 0
 repl_in = 1
 expected_str = "[ 1 | / ]"
@@ -206,7 +206,7 @@ if result_str != expected_str:
 
 
 #### UNIT TEST CASE: replace_in() ####
-chain_in = n.Node(1, n.Node(2))
+chain_in = n.node(1, n.node(2))
 target_in = 0
 repl_in = 1
 expected_str = "[ 1 | *-]-->[ 2 | / ]"
@@ -219,7 +219,7 @@ if result_str != expected_str:
 
 
 #### UNIT TEST CASE: replace_in() ####
-chain_in = n.Node(1, n.Node(2))
+chain_in = n.node(1, n.node(2))
 target_in = 1
 repl_in = 10
 expected_str = "[ 10 | *-]-->[ 2 | / ]"
@@ -232,7 +232,7 @@ if result_str != expected_str:
 
 
 #### UNIT TEST CASE: replace_in() ####
-chain_in = n.Node(1, n.Node(2))
+chain_in = n.node(1, n.node(2))
 target_in = 2
 repl_in = 10
 expected_str = "[ 1 | *-]-->[ 10 | / ]"
@@ -244,7 +244,7 @@ if result_str != expected_str:
     print('Test failed: {}: got "{}" expected "{}" -- {}'.format(test_item, result_str, expected_str, reason))
 
 #### UNIT TEST CASE: replace_in() ####
-chain_in = n.Node(1, n.Node(2, n.Node(3, n.Node(1, n.Node(4)))))
+chain_in = n.node(1, n.node(2, n.node(3, n.node(1, n.node(4)))))
 target_in = 1
 repl_in = 10
 expected_str = "[ 10 | *-]-->[ 2 | *-]-->[ 3 | *-]-->[ 10 | *-]-->[ 4 | / ]"

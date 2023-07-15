@@ -59,7 +59,7 @@ class LList(object):
         Return:
             :return None
         """
-        new_node = n.Node(val)
+        new_node = n.node(val)
         if self._head is None:
             self._head = new_node
             self._tail = new_node
@@ -80,7 +80,7 @@ class LList(object):
         Return:
             :return None
         """
-        new_node = n.Node(val)
+        new_node = n.node(val)
         if self._head is None:
             self._head = new_node
         else:
