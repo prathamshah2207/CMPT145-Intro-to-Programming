@@ -1,3 +1,8 @@
+# Student Name: Pratham Shah                        Section Number: 01
+# NSID: mvr659                                      Course Number: 41442
+# Student Number: 11353450                          Instructor: Lauresa Stilling
+
+
 import a4q3 as func_file
 import node as n
 
