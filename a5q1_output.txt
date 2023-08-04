@@ -1,0 +1,29 @@
+/student/mvr659
+.
+..
+a5q1.bash
+a5q1_log.txt
+a5q1_output.txt
+.bash_history
+.bashrc
+.cache
+.config
+.cshrc
+.login
+.profile
+.viminfo
+/student/mvr659/mvr659_cyan
+Hello World
+Hello World
+0a1
+> Hello World
+    PID TTY          TIME CMD
+4090582 pts/45   00:00:00 bash
+4103563 pts/45   00:00:00 bash
+4103876 pts/45   00:00:00 sleep
+4103877 pts/45   00:00:00 ps
+Course Name: CMPT145
+Name: Pratham Shah
+NSID: mvr659
+Student Number: 11353450
+Fact about me: I have a huge interest in computer science and love to code stuff and also have interest in game development.
