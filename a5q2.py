@@ -3,6 +3,8 @@
 # Student Number: 11353450                          Instructor: Lauresa Stilling
 
 import treenode as tn
+
+
 def subst(tnode, t, r):
     """
     Substitute a target value t with a replacement value r wherever it appears in the given tree.
@@ -19,6 +21,7 @@ def subst(tnode, t, r):
             tnode.set_data(r)
         subst(tnode.get_left(), t, r)
         subst(tnode.get_right(), t, r)
+
 
 def copy(tnode):
     """
@@ -40,4 +43,23 @@ def copy(tnode):
         newtree.set_right(right)
 
         return newtree
+
+
+def diff_sum_preorder(tnode):
+    """
+    Alternate between finding the difference and summation of values.
+    :param tnode: The root treenode
+    :return:
+    """
+
+    if tnode is None:
+        return 0
+    else:
+
+        x = tnode.get_data()
+        y = diff_sum_preorder(tnode.get_left())
+        z = diff_sum_preorder(tnode.get_right())
+
+        sum = x - y + z
+        return sum
 
