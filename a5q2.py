@@ -49,7 +49,8 @@ def diff_sum_preorder(tnode):
     """
     Alternate between finding the difference and summation of values.
     :param tnode: The root treenode
-    :return:
+    :return int: The result of the alternating pattern X - Y + Z based on the values encountered during the inorder traversal.
+
     """
 
     if tnode is None:
@@ -62,4 +63,20 @@ def diff_sum_preorder(tnode):
 
         sum = x - y + z
         return sum
+
+def diff_sum_inorder(tnode):
+    """
+    Alternate between finding the difference and summation of values.
+    :param tnode: The root treenode
+    :return int: The result of the alternating pattern X - Y + Z based on the values encountered during the inorder traversal.
+    """
+
+    if tnode is None:
+        return 0
+
+    x = diff_sum_inorder(tnode.get_left())
+    y = diff_sum_inorder(tnode.get_right())
+    z = tnode.get_data()
+
+    return x - y + z
 
