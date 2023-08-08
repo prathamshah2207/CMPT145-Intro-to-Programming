@@ -75,7 +75,7 @@ def diff_sum_inorder(tnode):
     """
 
     if tnode is None:
-        return
+        return 0
 
     if tnode.get_left() is not None:
         x = diff_sum_inorder(tnode.get_left())
@@ -103,7 +103,6 @@ def diff_sum_postorder(tnode):
     y = diff_sum_inorder(tnode.get_right())
     z = diff_sum_inorder(tnode.get_left())
 
-    # Alternating subtraction and addition
     if tnode.get_left() is None:
         return x - y
     elif tnode.get_right() is None:
