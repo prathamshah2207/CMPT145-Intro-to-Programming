@@ -3,6 +3,8 @@
 # Student Number: 11353450                          Instructor: Lauresa Stilling
 
 import treenode as tn
+import exampletrees
+import provided_treefunctions
 
 
 def subst(tnode, t, r):
@@ -64,6 +66,7 @@ def diff_sum_preorder(tnode):
         sum = x - y + z
         return sum
 
+
 def diff_sum_inorder(tnode):
     """
     Alternate between finding the difference and summation of values.
@@ -72,11 +75,17 @@ def diff_sum_inorder(tnode):
     """
 
     if tnode is None:
-        return 0
+        return
 
-    x = diff_sum_inorder(tnode.get_left())
-    y = diff_sum_inorder(tnode.get_right())
-    z = tnode.get_data()
+    if tnode.get_left() is not None:
+        x = diff_sum_inorder(tnode.get_left())
+    else:
+        x = tnode.get_data()
+    if tnode.get_right() is not None:
+        z = diff_sum_inorder(tnode.get_right())
+    else:
+        z = tnode.get_data()
+    y = tnode.get_data()
 
     return x - y + z
 
@@ -95,7 +104,7 @@ def diff_sum_postorder(tnode):
     z = diff_sum_inorder(tnode.get_left())
 
     # Alternating subtraction and addition
-    if tnode.get_left() is None:  # Special case for the first node
+    if tnode.get_left() is None:
         return x - y
     elif tnode.get_right() is None:
         return x + z
