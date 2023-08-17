@@ -11,12 +11,19 @@ def Conway(fileName, iterations=3):
     :param fileName: Name of the file
     :return: None
     '''
-    global line, row_count, column_count, file_noExt, original_iterations
+    global line, row_count, column_count, file_noExt, original_iterations, bool
 
     file_noExt = fileName.removesuffix('.txt')
     original_iterations = iterations
     row_count = 0
     l = []
+
+    # Ask User for console outputs
+    user_input = input("To see the results in the console press Y or press N otherwise: ")
+    if user_input == 'y' or user_input == 'Y':
+        bool = True
+    else:
+        bool = False
 
     file = open(fileName, "r")
 
@@ -128,8 +135,15 @@ def GameOfLife(arr1, arr_life, iterations):
                 output_list.append('*')
             else:
                 output_list.append('-')
-
     output_array = np.array(output_list).reshape(row_count, column_count)
+
+    if bool == True:
+        print("\nIteration -", original_iterations - iterations)
+        for line in output_array:
+            for element in line:
+                print(element, end='')
+            print()
+
     NeighbourCheck(output_array, iterations)
 
 
