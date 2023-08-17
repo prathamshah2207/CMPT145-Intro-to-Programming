@@ -84,8 +84,7 @@ def NeighbourCheck(ary, iterations):
 
             # Bottom-Right
             try:
-                if ary[currentRow + 1][
-                    currentElement + 1] == '*' and currentRow < row_count - 1 and currentElement < column_count - 1:
+                if ary[currentRow + 1][currentElement + 1] == '*' and currentRow < row_count - 1 and currentElement < column_count - 1:
                     lives += 1
             except IndexError:
                 pass
@@ -99,24 +98,85 @@ def NeighbourCheck(ary, iterations):
 
             # Top-Right
             try:
-                if ary[currentRow - 1][
-                    currentElement + 1] == '*' and currentRow > 0 and currentElement < column_count - 1:
+                if ary[currentRow - 1][currentElement + 1] == '*' and currentRow > 0 and currentElement < column_count - 1:
                     lives += 1
             except IndexError:
                 pass
 
             List_of_lives.append(lives)
     life_array = np.array(List_of_lives).reshape(row_count, column_count)
+    def zombie_neighbour():
+        zombie_counter = []
+
+        for currentRow in range(len(ary)):
+            for currentElement in range(len(ary[currentRow])):
+                zombies = 0
+
+                # Top
+                if ary[currentRow - 1][currentElement] == 'Z' and currentRow > 0:
+                    zombies += 1
+
+                # Top-Left
+                try:
+                    if ary[currentRow - 1][currentElement - 1] == 'Z' and currentRow > 0 and currentElement > 0:
+                        zombies += 1
+                except IndexError:
+                    pass
+
+                # Left
+                if ary[currentRow][currentElement - 1] == 'Z' and currentElement > 0:
+                    zombies += 1
+
+                # Bottom-Left
+                try:
+                    if ary[currentRow + 1][currentElement - 1] == 'Z' and currentRow < row_count - 1 and currentElement > 0:
+                        zombies += 1
+                except IndexError:
+                    pass
+
+                # Bottom
+                try:
+                    if ary[currentRow + 1][currentElement] == 'Z' and currentRow < row_count - 1:
+                        zombies += 1
+                except IndexError:
+                    pass
+
+                # Bottom-Right
+                try:
+                    if ary[currentRow + 1][
+                        currentElement + 1] == 'Z' and currentRow < row_count - 1 and currentElement < column_count - 1:
+                        zombies += 1
+                except IndexError:
+                    pass
+
+                # Right
+                try:
+                    if ary[currentRow][currentElement + 1] == 'Z' and currentElement < column_count - 1:
+                        zombies += 1
+                except IndexError:
+                    pass
+
+                # Top-Right
+                try:
+                    if ary[currentRow - 1][currentElement + 1] == 'Z' and currentRow > 0 and currentElement < column_count - 1:
+                        zombies += 1
+                except IndexError:
+                    pass
+                zombie_counter.append(zombies)
+        zb_ary = np.array(zombie_counter).reshape(row_count, column_count)
+        return zb_ary
+
+    zombie_array = zombie_neighbour()
 
     # If iterations are over then we go to different function to make output file
     if iterations <= 0:
         file_maker(ary)
     else:
         iterations -= 1
-        GameOfLife(ary, life_array, iterations)
+        GameOfLife(ary, life_array, zombie_array, iterations)
 
 
-def GameOfLife(arr1, arr_life, iterations):
+def GameOfLife(arr1, arr_life, arr_zombie, iterations):
     '''
     This function makes a new file and adds living and dead cells as per the conditions provided.
     :param arr1: Original array from input
@@ -125,16 +185,33 @@ def GameOfLife(arr1, arr_life, iterations):
     '''
 
     output_list = []
+    # for i in range(len(arr1)):
+    #     for j in range(len(arr1[i])):
+    #         if arr_life[i][j] < 2 or arr_life[i][j] > 3:
+    #             output_list.append('-')
+    #         elif (arr_life[i][j] == 2 or arr_life[i][j] == 3) and arr1[i][j] == "*":
+    #             output_list.append('*')
+    #         elif arr_life[i][j] == 3:
+    #             output_list.append('*')
+    #         else:
+    #             output_list.append('-')
+
     for i in range(len(arr1)):
         for j in range(len(arr1[i])):
-            if arr_life[i][j] < 2 or arr_life[i][j] > 3:
+            life_count = arr_life[i][j] + arr_zombie[i][j]
+            if life_count < 2 or life_count > 3:
                 output_list.append('-')
-            elif (arr_life[i][j] == 2 or arr_life[i][j] == 3) and arr1[i][j] == "*":
+            elif arr1[i][j] == "*" and arr_zombie[i][j] > 0:
+                output_list.append('Z')
+            elif arr1[i][j] == "*":
                 output_list.append('*')
-            elif arr_life[i][j] == 3:
-                output_list.append('*')
+            elif arr1[i][j] == "Z":
+                output_list.append('Z')
+            elif life_count == 3:
+                output_list.append('Z')
             else:
                 output_list.append('-')
+
     output_array = np.array(output_list).reshape(row_count, column_count)
 
     if bool == True:
