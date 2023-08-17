@@ -121,16 +121,12 @@ def GameOfLife(arr1, arr_life, iterations):
     for i in range(len(arr1)):
         for j in range(len(arr1[i])):
             if arr_life[i][j] < 2 or arr_life[i][j] > 3:
-                # f.write("-")
                 output_list.append('-')
             elif (arr_life[i][j] == 2 or arr_life[i][j] == 3) and arr1[i][j] == "*":
-                # f.write("*")
                 output_list.append('*')
             elif arr_life[i][j] == 3:
-                # f.write("*")
                 output_list.append('*')
             else:
-                # f.write("-")
                 output_list.append('-')
 
     output_array = np.array(output_list).reshape(row_count, column_count)
@@ -147,6 +143,3 @@ def file_maker(final_array):
         f.write('\n')
     f.close()
     print("Program Success...")
-
-
-Conway("input1.txt")
