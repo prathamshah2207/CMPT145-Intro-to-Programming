@@ -7,6 +7,7 @@ import math
 
 l = []
 
+
 def Conway(fileName):
     '''
     This function reads the input file and makes an array out of it. Then it calls another function and passes the array into it.
@@ -46,18 +47,50 @@ def NeighbourCheck(ary):
             # Top
             if ary[currentRow - 1][currentElement] == '*' and currentRow > 0:
                 lives += 1
+
+            # Top-Left
+            try:
+                if ary[currentRow - 1][currentElement - 1] == '*' and currentRow > 0 and currentElement > 0:
+                    lives += 1
+            except IndexError:
+                pass
+
             # Left
             if ary[currentRow][currentElement - 1] == '*' and currentElement > 0:
                 lives += 1
+
+            # Bottom-Left
+            try:
+                if ary[currentRow + 1][currentElement - 1] == '*' and currentRow < row_count - 1 and currentElement > 0:
+                    lives += 1
+            except IndexError:
+                pass
+
             # Bottom
             try:
                 if ary[currentRow + 1][currentElement] == '*' and currentRow < row_count - 1:
                     lives += 1
             except IndexError:
                 pass
+
+            # Bottom-Right
+            try:
+                if ary[currentRow + 1][
+                    currentElement + 1] == '*' and currentRow < row_count - 1 and currentElement < column_count - 1:
+                    lives += 1
+            except IndexError:
+                pass
+
             # Right
             try:
                 if ary[currentRow][currentElement + 1] == '*' and currentElement < column_count - 1:
+                    lives += 1
+            except IndexError:
+                pass
+
+            # Top-Right
+            try:
+                if ary[currentRow - 1][currentElement + 1] == '*' and currentRow > 0 and currentElement < column_count - 1:
                     lives += 1
             except IndexError:
                 pass
@@ -95,5 +128,6 @@ def GameOfLife(arr1, arr_life):
     f.close()
     output_array = np.array(output_list).reshape(row_count, column_count)
     return output_array, output_list
+
 
 Conway("input1.txt")
