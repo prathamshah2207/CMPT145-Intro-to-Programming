@@ -7,7 +7,7 @@ from a6q1 import *
 from unittest.mock import patch
 
 # Test1
-test = "Input1.txt"
+test = "input1.txt"
 expected = ['*-*', '*-*', '*-*']
 lst = []
 with patch("builtins.input", side_effect=["n"]):
@@ -21,7 +21,7 @@ else:
     print("Test1 Success...")
 
 # Test2
-test = "Input2.txt"
+test = "input2.txt"
 expected = ['ZZ', 'ZZ']
 lst = []
 with patch("builtins.input", side_effect=["n"]):
@@ -35,7 +35,7 @@ else:
     print("Test2 Success...")
 
 # Test3
-test = "Input3.txt"
+test = "input3.txt"
 expected = ['-*-', '---', '-*-']
 lst = []
 with patch("builtins.input", side_effect=["n"]):
@@ -49,7 +49,7 @@ else:
     print("Test3 Success...")
 
 # Test4
-test = "Input4.txt"
+test = "input4.txt"
 expected = ['--', 'ZZ', 'ZZ', '--']
 lst = []
 with patch("builtins.input", side_effect=["n"]):
@@ -63,7 +63,7 @@ else:
     print("Test4 Success...")
 
 # Test5
-test = "Input5.txt"
+test = "input5.txt"
 expected = ['--ZZ', '--ZZ', '----', '----']
 lst = []
 with patch("builtins.input", side_effect=["n"]):
@@ -77,7 +77,7 @@ else:
     print("Test5 Success...")
 
 # Test6
-test = "Input6.txt"
+test = "input6.txt"
 expected = ['---', '-ZZ', '---']
 lst = []
 with patch("builtins.input", side_effect=["n"]):
@@ -89,5 +89,21 @@ if lst != expected:
     print("Testing Conway() with", test, "\n\tExpected:", expected, "\n\tGot:", lst)
 else:
     print("Test6 Success...")
+
+print("---Testing Complete---")
+
+# Test7
+test = "input7.txt"  # Empty File
+expected = []
+lst = []
+with patch("builtins.input", side_effect=["n"]):
+    Conway(test)
+with open("input7_3steps.txt", "r") as temp_file:
+    for i in temp_file:
+        lst.append(i.removesuffix('\n'))
+if lst != expected:
+    print("Testing Conway() with", test, "\n\tExpected:", expected, "\n\tGot:", lst)
+else:
+    print("Test7 Success...")
 
 print("---Testing Complete---")
