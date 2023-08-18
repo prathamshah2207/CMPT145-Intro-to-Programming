@@ -6,11 +6,13 @@ import numpy as np
 
 
 def Conway(fileName, iterations=3):
-    '''
+    """
     This function reads the input file and makes an array out of it. Then it calls another function and passes the array into it.
+
     :param fileName: Name of the file
+    :param iterations: number of repeats the program is going to make
     :return: None
-    '''
+    """
     global line, row_count, column_count, file_noExt, original_iterations, bool
 
     file_noExt = fileName.removesuffix('.txt')
@@ -43,9 +45,10 @@ def Conway(fileName, iterations=3):
 
 def NeighbourCheck(ary, iterations):
     '''
-    This function counts the number of alive neighbours of each cell and makes an array of it. Then it passes both arrays to next function.
+    This function counts the number of alive neighbours of each cell and makes an array of it. Then it passes both arrays to next function if we need to iterate further. And if not then it calls another function for file making.
     :param ary: Original array from input
-    :return: output_array and output_list
+    :param iterations: number of repeats the program is going to make
+    :return: None
     '''
 
     List_of_lives = []
@@ -106,6 +109,10 @@ def NeighbourCheck(ary, iterations):
             List_of_lives.append(lives)
     life_array = np.array(List_of_lives).reshape(row_count, column_count)
     def zombie_neighbour():
+        """
+        This function counts the number of zombie neighbours of each cell and makes an array of it.
+        :return zb_ary: array of the count of zombies around each cell
+        """
         zombie_counter = []
 
         for currentRow in range(len(ary)):
@@ -177,12 +184,15 @@ def NeighbourCheck(ary, iterations):
 
 
 def GameOfLife(arr1, arr_life, arr_zombie, iterations):
-    '''
-    This function makes a new file and adds living and dead cells as per the conditions provided.
+    """
+    This function passes living, zombie and dead cells as per the conditions provided to the previous function and this happens till iteration is going on.
+
     :param arr1: Original array from input
     :param arr_life: Array of count of living neighbour cells of each cell
-    :return: output_array and output_list
-    '''
+    :param arr_zombie: Array of count of zombie neighbour cells of each cell
+    :param iterations: number of repeats the program is going to make
+    :return: None
+    """
 
     output_list = []
     for i in range(len(arr1)):
@@ -214,6 +224,11 @@ def GameOfLife(arr1, arr_life, arr_zombie, iterations):
 
 
 def file_maker(final_array):
+    """
+    This function makes a new file as per the number of iterations and the input file which has the items of final array.
+    :param final_array: The array that is finally out after all iteration changes.
+    :return: None
+    """
     new_file = f'{file_noExt}' + "_" + f'{original_iterations}' + "steps.txt"
     f = open(new_file, "w")
     for line in final_array:
