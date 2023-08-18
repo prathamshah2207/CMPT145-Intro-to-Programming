@@ -84,8 +84,7 @@ def NeighbourCheck(ary, iterations):
 
             # Bottom-Right
             try:
-                if ary[currentRow + 1][
-                    currentElement + 1] == '*' and currentRow < row_count - 1 and currentElement < column_count - 1:
+                if ary[currentRow + 1][currentElement + 1] == '*' and currentRow < row_count - 1 and currentElement < column_count - 1:
                     lives += 1
             except IndexError:
                 pass
@@ -99,15 +98,13 @@ def NeighbourCheck(ary, iterations):
 
             # Top-Right
             try:
-                if ary[currentRow - 1][
-                    currentElement + 1] == '*' and currentRow > 0 and currentElement < column_count - 1:
+                if ary[currentRow - 1][currentElement + 1] == '*' and currentRow > 0 and currentElement < column_count - 1:
                     lives += 1
             except IndexError:
                 pass
 
             List_of_lives.append(lives)
     life_array = np.array(List_of_lives).reshape(row_count, column_count)
-
     def zombie_neighbour():
         zombie_counter = []
 
@@ -132,8 +129,7 @@ def NeighbourCheck(ary, iterations):
 
                 # Bottom-Left
                 try:
-                    if ary[currentRow + 1][
-                        currentElement - 1] == 'Z' and currentRow < row_count - 1 and currentElement > 0:
+                    if ary[currentRow + 1][currentElement - 1] == 'Z' and currentRow < row_count - 1 and currentElement > 0:
                         zombies += 1
                 except IndexError:
                     pass
@@ -162,8 +158,7 @@ def NeighbourCheck(ary, iterations):
 
                 # Top-Right
                 try:
-                    if ary[currentRow - 1][
-                        currentElement + 1] == 'Z' and currentRow > 0 and currentElement < column_count - 1:
+                    if ary[currentRow - 1][currentElement + 1] == 'Z' and currentRow > 0 and currentElement < column_count - 1:
                         zombies += 1
                 except IndexError:
                     pass
@@ -190,7 +185,6 @@ def GameOfLife(arr1, arr_life, arr_zombie, iterations):
     '''
 
     output_list = []
-
     for i in range(len(arr1)):
         for j in range(len(arr1[i])):
             life_count = arr_life[i][j] + arr_zombie[i][j]
