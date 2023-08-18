@@ -19,3 +19,17 @@ if lst != expected:
     print("Testing Conway() with", test, "\n\tExpected:", expected, "\n\tGot:", lst)
 else:
     print("Test1 Success...")
+
+# Test2
+test = "Input2.txt"
+expected = ['ZZ', 'ZZ']
+lst = []
+with patch("builtins.input", side_effect=["n"]):
+    Conway(test, 2)
+with open("input2_2steps.txt", "r") as temp_file:
+    for i in temp_file:
+        lst.append(i.removesuffix('\n'))
+if lst != expected:
+    print("Testing Conway() with", test, "\n\tExpected:", expected, "\n\tGot:", lst)
+else:
+    print("Test1 Success...")
