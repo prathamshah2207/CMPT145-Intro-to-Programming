@@ -6,7 +6,7 @@
 #   next: a reference to another node
 # We can create node-chains of any size.
 
-class node(object):
+class Node(object):
 
     def __init__(self, data, next=None):
         """
@@ -59,6 +59,7 @@ class node(object):
             stores a new next value, replacing existing value
         Return
             none
+
         """
         self.__next = val
 

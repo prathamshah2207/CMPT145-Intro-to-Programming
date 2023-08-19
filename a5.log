@@ -1,0 +1,118 @@
+Student Name: Pratham Shah                        Section Number: 01
+NSID: mvr659                                      Course Number: 41442
+Student Number: 11353450                          Instructor: Lauresa Stilling
+
+
+commit ad95086e989044323c5552ed45dc411e8ff728df (HEAD -> master, origin/master, origin/HEAD)
+Author: mvr659 <mvr659@usask.ca>
+Date:   Mon Aug 7 22:37:22 2023 -0600
+
+    a5q2 - Made test cases for diff_sum_postorder() function to make it work accurate.
+
+commit 9f6926e001eb9c279c0872ae3cddc9a3c37d1a5c
+Author: mvr659 <mvr659@usask.ca>
+Date:   Mon Aug 7 22:36:15 2023 -0600
+
+    a5q2 - Bug fixes in some functions
+
+commit 4a0bb7849241c0c29644ef1858ea27f053535dac
+Author: mvr659 <mvr659@usask.ca>
+Date:   Mon Aug 7 22:26:42 2023 -0600
+
+    a5q2 - Made test cases for diff_sum_inorder() function for its accurate performance
+
+commit e53e99bda273a2b5d56c4d1e7479311e2a50fed9
+Author: mvr659 <mvr659@usask.ca>
+Date:   Mon Aug 7 22:12:01 2023 -0600
+
+    a5q2 - Bug Fixes for diff_sum_inorder() function due to some test cases.
+
+commit e8c54cfb7136620a48dca63d2cf71533c7fb6690
+Author: mvr659 <mvr659@usask.ca>
+Date:   Mon Aug 7 22:08:49 2023 -0600
+
+    a5q2 - Bug Fixes and changed some reasons
+
+commit 7463a69591576201711d103a6fe412227b62db28
+Author: mvr659 <mvr659@usask.ca>
+Date:   Mon Aug 7 21:11:31 2023 -0600
+
+    a5q2 - Made test cases for copy() function for efficient functioning.
+
+commit 18a944f14260fe6bc2e120ecd4de1dd979041476
+Author: mvr659 <mvr659@usask.ca>
+Date:   Mon Aug 7 21:08:48 2023 -0600
+
+    a5q2 - Made test cases for subst() function for efficient functioning.
+
+commit 77c22bed3bbc76debc3dabec5579df4f273426b5
+Author: mvr659 <mvr659@usask.ca>
+Date:   Mon Aug 7 20:53:35 2023 -0600
+
+    a5q3 - Made docstrings for the ordered() and internal functions.
+
+commit ffa533b9d933c7300c66a8fd80196d55e18ed69b
+Author: mvr659 <mvr659@usask.ca>
+Date:   Mon Aug 7 18:58:25 2023 -0600
+
+    a5q3 - Made various test cases for the Ordered() function to check its accuracy
+
+commit ccba1250ee0dda5c239374e30f7597bd4b0ab5b1
+Author: mvr659 <mvr659@usask.ca>
+Date:   Mon Aug 7 18:56:59 2023 -0600
+
+    a5q3 - Made the Ordered() function with a function inside it to make it with O(n) time complexity and proper functionality
+
+commit 389b7966ee7a350e83a3e9f43ed2a6dd0a9929f6
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 4 13:49:10 2023 -0600
+
+    a5q2 - Added fifth function diff_sum_postorder() as per required functionality.
+
+commit d811e1f219c0c52dbecd1e8cb440e3da5edb7f2e
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 4 13:48:48 2023 -0600
+
+    a5q2 - Added forth function diff_sum_inorder() as per required functionality.
+
+commit ea1287c05f8485c1eea4aa99d09ae333d995e363
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 4 13:06:01 2023 -0600
+
+    a5q2 - Added third function diff_sum_preorder() as per required functionality.
+
+commit bd63e9fa8ff35f873ad33e1a5ee895cc9d977210
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 4 12:31:30 2023 -0600
+
+    a5q2 - Added second function copy() as per required functionality.
+
+commit 65632e17d161b10ea5b0cf4c4a3b069159ebbc5e
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 4 11:32:02 2023 -0600
+
+    a5q2 - Created file a5q2 and added the function subst() and its functionality as required
+
+commit 49ece2561342c990c81cf71ec7190605a23ba142
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 4 07:02:32 2023 -0600
+
+    a5q1 - Added personal info to all the files
+
+commit 19069128f26810f325e107054e19ee6365b34cc6
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 4 06:57:08 2023 -0600
+
+    a5q1 - Uploaded output and log file as per required command
+
+commit 87a3c0b8fd690b694d42c1679977bb2d06494424
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 4 05:13:03 2023 -0600
+
+    a5q1 - added all provided functionalities in the bash file as required
+
+commit 47a42a9071298ba4727196523476e0760af466c5
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 4 04:52:06 2023 -0600
+
+    a5q1 - Added files via upload

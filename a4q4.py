@@ -55,7 +55,7 @@ start = (0, 3)
 goal = (4, 5)
 
 print(SolveMaze(maze, start, goal))
-for rows in maze:
-    for cell in rows:
+for row_count in maze:
+    for cell in row_count:
         print(cell, '', end='')
     print()

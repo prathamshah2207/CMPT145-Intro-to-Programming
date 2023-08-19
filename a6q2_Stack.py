@@ -1,3 +1,7 @@
+# Student Name: Pratham Shah                        Section Number: 01
+# NSID: mvr659                                      Course Number: 41442
+# Student Number: 11353450                          Instructor: Lauresa Stilling
+
 from a6q2_Container import Container
 
 class Stack(Container):

@@ -1,0 +1,148 @@
+Student Name: Pratham Shah                        Section Number: 01
+NSID: mvr659                                      Course Number: 41442
+Student Number: 11353450                          Instructor: Lauresa Stilling
+
+
+Author: mvr659 <mvr659@usask.ca>
+Date:   Sat Aug 19 15:17:08 2023 -0600
+
+    a6q2 - Minor bug fixes in queue class made
+
+commit 57aee9e6b30216bac4953b56814df463e36dd0ba
+Author: mvr659 <mvr659@usask.ca>
+Date:   Sat Aug 19 02:27:56 2023 -0600
+
+    a6q2 - Made docstrings for all the functions al the classes.
+
+commit 2eb8d5aeb4bc368de857be9504262d1f2409b90c
+Author: mvr659 <mvr659@usask.ca>
+Date:   Sat Aug 19 02:27:19 2023 -0600
+
+    a6q2 - Made the queue class in a6q2_Queue.py file with all required functions for successful test cases that are already provided.
+
+commit 4fb7c909bef9aa27d21587083472b27d7a8b55a8
+Author: mvr659 <mvr659@usask.ca>
+Date:   Sat Aug 19 01:39:58 2023 -0600
+
+    a6q2 - Bug Fixes wile making queue class and testing and got to know that there's a need to change container and stack class.
+
+commit a651b8d407bc659be63bbf0b09fa4913680552bd
+Author: mvr659 <mvr659@usask.ca>
+Date:   Sat Aug 19 00:49:36 2023 -0600
+
+    a6q2 - Made Stack class in a6q2_Stack.py file with all important functions of a stack, and it fulfills all test cases for provided test_Stack file.
+
+commit 075825a5fd88562adf8a38968317c09cefebb38e
+Author: mvr659 <mvr659@usask.ca>
+Date:   Sat Aug 19 00:06:48 2023 -0600
+
+    a6q2 - Made Container super class with all important functions in it which can be used both in Stack file and Queue file.
+
+commit 8e11d20ac4d5d8ecc79ec6c16f1e6010e76ab619
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 18 21:16:14 2023 -0600
+
+    a6q1 - Made the retrospective file and answered in flow with all requirements fulfilled
+
+commit 5b87c5cd0f7da4ac24dce730a4fad0dd47c789e6
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 18 16:45:43 2023 -0600
+
+    a6q1 - Wrote docstrings for several functions and also changed some as per new function workings.
+
+commit 003e50321e2b3ab2380e251734c32ff22636972c
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 18 15:41:26 2023 -0600
+
+    a6q1 - Added seventh test for the testing file, and this file is empty for uniqueness.
+
+commit 31555b5024c0b5e95c7632d1f11a3c16888c443b
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 18 15:34:21 2023 -0600
+
+    a6q1 - Added sixth test for the testing file, and this time tested for the default iterations.
+
+commit d9958ebe0ae37f880c407ccd9b83e55b4bb4e866
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 18 15:28:07 2023 -0600
+
+    a6q1 - Added fifth test for the testing file, and now we are going for more iterations
+
+commit 2e35a18ae3b312d431a82083627c1eee7f921bd5
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 18 15:25:32 2023 -0600
+
+    a6q1 - Added forth test for the testing file
+
+commit 7cc96d4dd79a39ca7215068ebe7e1b35f0190896
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 18 15:23:48 2023 -0600
+
+    a6q1 - Added third test for the testing file, and we are using the provided input tests in testings.
+
+commit b9f8bde3783e16cfa565ef75c4208776c4999047
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 18 15:21:18 2023 -0600
+
+    a6q1 - Added second test and now with different number of iterations for more varied testings.
+
+commit e15c3530a42ee8aee99590b23c0a436e50496e8e
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 18 15:19:43 2023 -0600
+
+    a6q1 - Made the testing file for game of life code where we imported a new module called unittest.mock which we use to give user inputs via tests so while testing we don't have to input manually the yes or no for console output feature in the code.
+
+commit 95f5a5be8b8deee1d6b17f5e834aa532eb44e0bd
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 18 15:17:36 2023 -0600
+
+    a6q1 - Minor Bug Fixes
+
+commit 2082c865a3ee52d8430b863af47c52565220ef7a
+Author: mvr659 <mvr659@usask.ca>
+Date:   Fri Aug 18 13:34:51 2023 -0600
+
+    a6q1 - Minor Bug Fixes
+
+commit f51b30b9a11b8f4e75918fbd918ae3d5e9bdd263
+Author: mvr659 <mvr659@usask.ca>
+Date:   Thu Aug 17 02:45:25 2023 -0600
+
+    a6q1 - Added features for the zombie cells just as required by making a dead cell alive to zombie and the zombie infection to surrounding living cells after 1 iteration.
+
+commit c2b5f36fb1596033be1281ca0180b8668ecae6d8
+Author: mvr659 <mvr659@usask.ca>
+Date:   Thu Aug 17 00:39:24 2023 -0600
+
+    a6q1 - Now the user is asked if they wish to see results in the console with each identifiable iteration as required.
+
+commit acddc4147a1200f9b9d3e55b6f5a59849c10e530
+Author: mvr659 <mvr659@usask.ca>
+Date:   Thu Aug 17 00:22:34 2023 -0600
+
+    a6q1 - Minor Bug Fixes
+
+commit f1ccc154aa4b7a6365396d468b7ac4389ce9a35c
+Author: mvr659 <mvr659@usask.ca>
+Date:   Wed Aug 16 22:55:43 2023 -0600
+
+    a6q1 - Made it so that user can now enter amount of iterations and the file is made after the iterations are complete and default iterations are set to 3. Also, now the program functions are recursive to make the iterations work as required.
+
+commit 2034c99920cbaabc2da0666ac3ad64e8bcb55017
+Author: mvr659 <mvr659@usask.ca>
+Date:   Wed Aug 16 20:58:52 2023 -0600
+
+    a6q1 - Completed second requirement that considering all 8 adjacent neighbours.
+
+commit 2737787b30f12b288d4250e6a9548e520e66ee84
+Author: mvr659 <mvr659@usask.ca>
+Date:   Wed Aug 16 20:35:55 2023 -0600
+
+    a6q1 - Completed first requirement that the grid can be rectangle of any size.
+
+commit 9c30f4b14b296c69299a226ba4afcb4247d1f250
+Author: mvr659 <mvr659@usask.ca>
+Date:   Wed Aug 16 20:34:42 2023 -0600
+
+    a6q1 - Added files via upload
+

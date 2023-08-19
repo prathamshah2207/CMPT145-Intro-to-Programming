@@ -1,5 +1,5 @@
 # CMPT 145 Course material
-# Copyright (c) 2017-2023 Michael C Horsch
+# Copyright (c) 2017-2020 Michael C Horsch
 # All rights reserved.
 #
 # This document contains resources for homework assigned to students of
@@ -14,17 +14,36 @@
 # A queue (also called a FIFO queue) is a compound data 
 # structure in which the data values are ordered according to 
 # the FIFO (first-in first-out) protocol.
+#
+# Implementation notes:
+# This implementation uses the linked node structure.
 
-class Queue(object):
+
+import node as N
+
+class SimpleQueue(object):
 
     def __init__(self):
         """
         Purpose
             creates an empty queue
-        Return
-            an empty queue
         """
-        self.data = list()
+        self.__size = 0      # how many elements in the queue
+        self.__front = None  # the node chain starts here
+        self.__back = None   # the node chain ends here
+
+
+    def size(self):
+        """
+        Purpose
+            returns the number of data values in the queue
+        Pre-conditions:
+            queue: a queue created by create()
+        Return:
+            The number of data values in the queue
+        """
+        return self.__size
+
 
     def is_empty(self):
         """
@@ -33,57 +52,68 @@ class Queue(object):
         Return:
             True if the queue has no data, or false otherwise
         """
-        return len(self.data) == 0
-
-
-    def size(self):
-        """
-        Purpose
-            returns the number of data values in the given queue
-        Return:
-            The number of data values in the queue
-        """
-        return len(self.data)
+        return self.__size == 0
 
 
     def enqueue(self, value):
         """
         Purpose
-            adds the given data value to the given queue
+            adds the given data value to the queue
         Pre-conditions:
-            queue: a queue created by create()
             value: data to be added
         Post-condition:
             the value is added to the queue
         Return:
             (none)
         """
-        self.data.append(value)
+        new_node = N.node(value, None)
+
+        if self.is_empty():
+            self.__front = new_node
+            self.__back = new_node
+        else:
+            prev_last_node = self.__back
+            prev_last_node.set_next(new_node)
+            self.__back = new_node
+
+        self.__size += 1
+
 
 
     def dequeue(self):
         """
         Purpose
-            removes and returns a data value from the given queue
-        Pre-conditions:
-            queue: a queue created by create()
+            removes and returns a data value from the queue
+            Note: the queue cannot be empty!
         Post-condition:
             the first value is removed from the queue
         Return:
-            the first value in the queue
+            the first value in the queue, or None
         """
-        return self.data.pop(0)
+        assert not self.is_empty(), 'dequeued an empty queue'
+
+        prev_first_node = self.__front
+        result = prev_first_node.get_data()
+        self.__front = prev_first_node.get_next()
+        self.__size -= 1
+        if self.__size == 0:
+            self.__back = None
+        return result
+
 
     def peek(self):
         """
         Purpose
-            returns the value from the front of given queue
+            returns the value from the front of queue
             without removing it
-        Pre-conditions:
-            queue: a queue created by create()
+            Note: the queue cannot be empty!
         Post-condition:
             None
         Return:
             the value at the front of the queue
         """
-        return self.data[0]
+        assert not self.is_empty(), 'peeked into an empty queue'
+
+        first_node = self.__front
+        result = first_node.get_data()
+        return result
