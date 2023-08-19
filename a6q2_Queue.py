@@ -42,13 +42,10 @@ class Queue(Container):
         Returns:
             The data of the element at the front of the queue, or None if the queue is empty.
         """
-        if self._front is None:
-            return None
+
         data = self._front.get_data()
         self._front = self._front.get_next()
         self._size -= 1
-        if self._front is None:
-            self._back = None
         return data
 
     def peek(self):
