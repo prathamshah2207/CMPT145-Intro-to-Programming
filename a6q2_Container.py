@@ -3,31 +3,31 @@ import node as N
 
 class Container:
     def __init__(self):
-        self.__size = 0
-        self.__head = None
+        self._size = 0
+        self._head = None
 
     def is_empty(self):
-        return self.__size == 0
+        return self._size == 0
 
     def get_size(self):
-        return self.__size
+        return self._size
 
     def push_data(self, value):
         new_node = N.Node(value)
-        if self.__head is None:
-            self.__head = new_node
+        if self._head is None:
+            self._head = new_node
         else:
-            new_node.set_next(self.__head)
-            self.__head = new_node
-        self.__size += 1
+            new_node.set_next(self._head)
+            self._head = new_node
+        self._size += 1
 
     def pop_data(self):
-        if self.__head is None:
+        if self._head is None:
             return None
-        data = self.__head.get_data()
-        self.__head = self.__head.get_next()
-        self.__size -= 1
+        data = self._head.get_data()
+        self._head = self._head.get_next()
+        self._size -= 1
         return data
 
     def peek_data(self):
-        return self.__head.get_data()
+        return self._head.get_data()
