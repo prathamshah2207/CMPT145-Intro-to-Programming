@@ -1,0 +1,76 @@
+Student Name: Pratham Shah                        Section Number: 01
+NSID: mvr659                                      Course Number: 41442
+Student Number: 11353450                          Instructor: Lauresa Stilling
+----------------------------------------------------------------------------------------------
+
+I) Reflection on the Design Document, Implementation, and Testing:
+
+1) Clarity and Understanding:
+- The initial implementation had lack of clarity in variable naming and purpose, which caused confusion during debugging.
+- At first I only had the 4 directions for neighbours but now after more specifications I have 8 neighbour and now also concept of zombie cells that makes harder to understand.
+
+2) Details and Variables:
+- There are some places like NeighbourCheck() and GameOfLife() functions where I didn't provide enough details in form of comments to understand the different parts of the function and thus making it hard to understand.
+- Also in the previous code the variables Ire not intended to its meaning but now some of those are changed like instead of using just 'x' and 'y' now I am using row_count and column_count to make it more understandable in program.
+
+3) Flaws in Code and Inflexibility:
+- There are error-prone and complex logics in some parts. Example in neighbourCheck() and its sub-function zombie_neighbour() I have used try-except block for checking some neighbouring cells because they gave us Index Errors which I couldn't get rid of, so I just passed it over which worked for me.
+- Some parts of the code are not flexible like for a living cell as neighbour of a zombie we couldn't just replace it with a 'Z' instead we need to check for every neighbour of living cell for zombies and at every iteration we would find it and if we have zombie then it we replace it with a 'Z'.
+
+4) Strength and Flexibility:
+- Making separate functions for each specific functionality make the code more modular, strengthened and easy to understand.
+- The program was flexible at some points like making changes to check for diagonal neighbours too was an easy task as it was a flexible and easily changeable part.
+
+
+II) Examine Original Code through Design and Implementation Goals:
+
+1) Correctness:
+- The original code seems to implement the core Conway's Game of Life logic accurately based on the initial specifications.
+  But also after the new specifications e.g. making it iterate and having grids of any size, we expanded it concept deeper into the Conway's game.
+- From changing the original code to a more featured one was a great step and also made me change some concepts that were of no use
+  e.g.: using the list_to_array() function for testing to now only using the Conway() function and some other modules like the 'unittest.mock' module to make testing just as we wanted.
+
+2) Efficiency:
+- The nested loops in neighbourCheck() and zombie_neighbour() functions might lead to performance issues, especially for larger grids.
+  So it could be optimized by making use of other methods like making of recursive functions somehow.
+- For more efficient running we could make it so that instead of everytime making an array of every list and then run nested-loops for accessing the data we could somehow use the lists, so we can have direct access of data and manipulate it.
+
+3) Reusability:
+- The original code wasn't parameterized and couldn't be reused, which limited its ability to be modified for various situations.
+  e.g.: The hard-coded values for the cell types, for instance, made it challenging to adjust to various scenarios involving cells of various types in the original.
+- The modified version significantly improved the code's versatility and reusability by including parameters and user-defined preferences.
+  For instance: User-defined parameters improved reuse and made the code flexible for use in a variety of situations, such as file name and repetition count.
+
+4) Adaptability:
+- The previous code was difficult to adapt due to hard-coded values and constrained parameters.
+  e.g.: The hardcoded values limited the code's ability to support new cell types or rules.
+- By adding new zombie cell logic and giving users control over iterations, the modified version increased adaptability.
+  e.g.: user-controlled parameters allowed for multiple iterations of adaptability for customised cell types and rules.
+
+5) Reliability:
+- Despite the fact that the original version lacked adequate error handling, both versions demonstrated dependability for inputs of the typical kind.
+  e.g.: Inadequate error handling may result in crashes because input files are missing or unexpected responses are received.
+- The enhanced version increased stability while enhancing reliability by addressing potential edge cases and validating user input.
+  Example: Robust error handling was implemented to manage unexpected user responses and boost overall reliability.
+
+
+III) Expanding the code:
+
+1) Changes Made:
+- The modified version added zombie logic and multiple iterations, expanding the code's capabilities and scope.
+  The inclusion of zombie logic and repetition iterations improved the code's adaptability and applicability.
+- The addition of new functions allowed for the calculation of zombie neighbours and the management of multiple game iterations.
+  Reason: The new zombie cell scenarios and various iterations were addressed by the new features.
+- I initially neglected to include the number of living and zombie cells, which caused input6 file issues.
+
+
+IV) Main points:
+
+Important Lessons Learned:
+- Consistent and clear variable naming improves readability and maintenance.
+  For instance, variables with ambiguous names, like ls, made it difficult to read and understand the code.
+- Thorough function documentation reduces debugging time and increases comprehension.
+  For instance: Using descriptive variable names like f_name and flag made it easier to understand and maintain the code.
+- I created functions for each functionality that an instructor or other person could easily understand.
+  for instance, a file maker and a zombie and neighbour count.
+- Another thing I can do to enhance my coding abilities is to create a rough diagram or pathway before beginning the coding.
