@@ -36,7 +36,7 @@ The course provided foundational programming experience using **Python** and **C
 ## 👨‍💻 Author
 
 **Pratham Shah**  
-📎 [LinkedIn]([https://www.linkedin.com/in/pratham-shah-057274190/])
+📎 [LinkedIn](https://www.linkedin.com/in/pratham-shah-057274190)
 
 ---
 
